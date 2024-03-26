@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dpitgjhhbn8fu"]
+
+[ext_resource type="SystemFont" uid="uid://ce0cxpc6yi6jg" path="res://Theme/Font/Announce.tres" id="1_j1tl8"]
+[ext_resource type="StyleBox" uid="uid://bisr35bm2txfb" path="res://Theme/Button/Button_normal.tres" id="2_un10g"]
+[ext_resource type="StyleBox" uid="uid://dhdpqf1q3gnlt" path="res://Theme/Panel_Main.tres" id="3_b0idh"]
+[ext_resource type="SystemFont" uid="uid://b2tixq2dwt760" path="res://Theme/Font/Title.tres" id="4_r8rro"]
+[ext_resource type="StyleBox" uid="uid://cswgy8uuc10u3" path="res://Theme/LineEdit/LineEdit_normal.tres" id="5_oj6iq"]
+
+[sub_resource type="SystemFont" id="SystemFont_kh6c2"]
+font_weight = 450
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47e8i"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/fonts/font = ExtResource("1_j1tl8")
+Button/styles/normal = ExtResource("2_un10g")
+HBoxContainer/constants/separation = 20
+ItemList/colors/font_color = Color(0.0352941, 0.0352941, 0.0352941, 1)
+ItemList/colors/font_hovered_color = Color(0, 0.0431373, 0.658824, 1)
+ItemList/colors/font_selected_color = Color(0.211765, 0.392157, 0.654902, 1)
+ItemList/colors/guide_color = Color(0.203922, 0.203922, 0.203922, 0.886275)
+ItemList/font_sizes/font_size = 20
+ItemList/styles/panel = ExtResource("3_b0idh")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("4_r8rro")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.647059)
+LineEdit/constants/caret_width = 2
+LineEdit/fonts/font = ExtResource("1_j1tl8")
+LineEdit/styles/normal = ExtResource("5_oj6iq")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+Panel/styles/panel = ExtResource("3_b0idh")
+TabContainer/colors/drop_mark_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_outline_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_selected_color = Color(0.470588, 0.470588, 0.470588, 1)
+TabContainer/colors/font_unselected_color = Color(0.780392, 0.780392, 0.772549, 1)
+TabContainer/fonts/font = SubResource("SystemFont_kh6c2")
+TabContainer/styles/panel = ExtResource("3_b0idh")
+TabContainer/styles/tab_selected = ExtResource("3_b0idh")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_47e8i")
