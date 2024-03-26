@@ -1,21 +1,32 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dpitgjhhbn8fu"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dpitgjhhbn8fu"]
 
 [ext_resource type="SystemFont" uid="uid://ce0cxpc6yi6jg" path="res://Theme/Font/Announce.tres" id="1_j1tl8"]
 [ext_resource type="StyleBox" uid="uid://bisr35bm2txfb" path="res://Theme/Button/Button_normal.tres" id="2_un10g"]
+[ext_resource type="StyleBox" uid="uid://o1ooflobdfuf" path="res://Theme/Button/CheckButton_normal.tres" id="3_14vj4"]
 [ext_resource type="StyleBox" uid="uid://dhdpqf1q3gnlt" path="res://Theme/Panel_Main.tres" id="3_b0idh"]
+[ext_resource type="StyleBox" uid="uid://cc1t52cpuqs8g" path="res://Theme/Line_Seperator.tres" id="4_dye0u"]
 [ext_resource type="SystemFont" uid="uid://b2tixq2dwt760" path="res://Theme/Font/Title.tres" id="4_r8rro"]
 [ext_resource type="StyleBox" uid="uid://cswgy8uuc10u3" path="res://Theme/LineEdit/LineEdit_normal.tres" id="5_oj6iq"]
+[ext_resource type="StyleBox" uid="uid://d4ciu25quo8ei" path="res://Theme/Panel_Secondary.tres" id="7_3okd7"]
 
 [sub_resource type="SystemFont" id="SystemFont_kh6c2"]
 font_weight = 450
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47e8i"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s0plv"]
+grow_begin = 2.0
+grow_end = 6.0
+thickness = 2
+vertical = true
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/fonts/font = ExtResource("1_j1tl8")
 Button/styles/normal = ExtResource("2_un10g")
+CheckButton/styles/normal = ExtResource("3_14vj4")
 HBoxContainer/constants/separation = 20
+HSeparator/styles/separator = ExtResource("4_dye0u")
 ItemList/colors/font_color = Color(0.0352941, 0.0352941, 0.0352941, 1)
 ItemList/colors/font_hovered_color = Color(0, 0.0431373, 0.658824, 1)
 ItemList/colors/font_selected_color = Color(0.211765, 0.392157, 0.654902, 1)
@@ -46,3 +57,8 @@ TabContainer/fonts/font = SubResource("SystemFont_kh6c2")
 TabContainer/styles/panel = ExtResource("3_b0idh")
 TabContainer/styles/tab_selected = ExtResource("3_b0idh")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_47e8i")
+TextEdit/colors/font_color = Color(1, 1, 1, 1)
+TextEdit/colors/font_placeholder_color = Color(1, 1, 1, 0.6)
+TextEdit/colors/font_readonly_color = Color(1, 1, 1, 1)
+TextEdit/styles/normal = ExtResource("7_3okd7")
+VSeparator/styles/separator = SubResource("StyleBoxLine_s0plv")

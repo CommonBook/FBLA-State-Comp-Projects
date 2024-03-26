@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://2vsa6omjq4y0"]
+[gd_scene load_steps=3 format=3 uid="uid://2vsa6omjq4y0"]
 
 [ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_acdtu"]
 [ext_resource type="Script" path="res://Scripts/Filters_Button.gd" id="2_tsjpw"]
-[ext_resource type="PackedScene" uid="uid://bvns4qwen5y7n" path="res://Panels/Filters.tscn" id="3_x6rnj"]
 
 [node name="Nest" type="Control"]
 layout_mode = 3
@@ -60,7 +59,6 @@ custom_minimum_size = Vector2(68.93, 0)
 layout_mode = 2
 text = "Filters"
 script = ExtResource("2_tsjpw")
-filters_menu = ExtResource("3_x6rnj")
 
 [node name="Names Container" type="MarginContainer" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Search & Names"]
 layout_mode = 2
