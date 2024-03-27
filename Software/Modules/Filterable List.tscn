@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://c50r7thrgw1k4"]
+
+[ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_nudk6"]
+[ext_resource type="Script" path="res://Scripts/Filterable List.gd" id="2_horbo"]
+[ext_resource type="PackedScene" uid="uid://bvns4qwen5y7n" path="res://Panels/Filters.tscn" id="4_2ihlg"]
+[ext_resource type="Texture2D" uid="uid://rfp7eh540ov8" path="res://Assets/Edit Icon/Edit_Icon.png" id="5_s8ya0"]
+
+[node name="Filterable List" type="VBoxContainer"]
+theme = ExtResource("1_nudk6")
+script = ExtResource("2_horbo")
+filters_menu = ExtResource("4_2ihlg")
+
+[node name="Title & Search" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Title & Search"]
+layout_mode = 2
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Search Field" type="LineEdit" parent="Title & Search"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search Names"
+clear_button_enabled = true
+select_all_on_focus = true
+caret_blink = true
+
+[node name="Filters Button" type="Button" parent="Title & Search"]
+custom_minimum_size = Vector2(68.93, 0)
+layout_mode = 2
+text = "Filters"
+
+[node name="Edit Button" type="Button" parent="Title & Search"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 30
+icon = ExtResource("5_s8ya0")
+
+[node name="Names Container" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Names List" type="ItemList" parent="Names Container"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../Title & Search/Search Field")
+auto_height = true
+
+[connection signal="text_changed" from="Title & Search/Search Field" to="." method="_on_search_field_text_changed"]
+[connection signal="pressed" from="Title & Search/Filters Button" to="." method="_on_filters_button_pressed"]
+[connection signal="item_clicked" from="Names Container/Names List" to="." method="_on_names_list_item_clicked"]

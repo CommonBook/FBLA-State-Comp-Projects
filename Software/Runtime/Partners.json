@@ -1,0 +1,40 @@
+{
+	"Godot" : {
+		"Members" : {
+			"value" : {
+				"Steve" : {
+					"Description" : "This is steve",
+					"Phone Number" : 6022222222
+				}
+			},
+			"variant" : "list"
+		},
+		"Type" : {
+			"value" : "Non-Profit",
+			"variant" : "manual"
+		},
+		"Custom Tags" : {
+			"value" : ["Smart", "Cool", "Free", "Open-Source"],
+			"variant" : "tags"
+		}
+	},
+	"Castillo Co." : {
+		"Members" : {
+			"value" : {
+				"Castillo" : {
+					"Description" : "Castillo is a computer science teacher",
+					"Phone Number" : "Not Provided"
+				}
+			},
+			"variant" : "list"
+		},
+		"Type" : {
+			"value" : "Education",
+			"variant" : "manual"
+		},
+		"Custom Tags" : {
+			"value" : ["Cool", "Smart", "Handsome"],
+			"variant" : "tags"
+		}
+	}
+}

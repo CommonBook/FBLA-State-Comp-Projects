@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://2vsa6omjq4y0"]
+[gd_scene load_steps=6 format=3 uid="uid://2vsa6omjq4y0"]
 
 [ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_acdtu"]
-[ext_resource type="Script" path="res://Scripts/Filters_Button.gd" id="2_tsjpw"]
-[ext_resource type="PackedScene" uid="uid://bvns4qwen5y7n" path="res://Panels/Filters.tscn" id="3_x6rnj"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="2_cdc3c"]
+[ext_resource type="PackedScene" uid="uid://c50r7thrgw1k4" path="res://Modules/Filterable List.tscn" id="3_c78t1"]
+[ext_resource type="Script" path="res://Scripts/Info Tree.gd" id="4_hqtj0"]
+[ext_resource type="PackedScene" uid="uid://c6bo7lp40jah3" path="res://Panels/Wake.tscn" id="5_62wr0"]
 
-[node name="Nest" type="Control"]
+[node name="Nest" type="Control" node_paths=PackedStringArray("partnerSearch", "memberSerch")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +14,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_acdtu")
+script = ExtResource("2_cdc3c")
+partnerSearch = NodePath("VBoxContainer/MarginContainer/Partners/Content Vertical/Partner Search")
+memberSerch = NodePath("VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Member Search")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -34,44 +39,9 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Search & Names" type="VBoxContainer" parent="VBoxContainer/MarginContainer/Partners/Content Vertical"]
+[node name="Partner Search" parent="VBoxContainer/MarginContainer/Partners/Content Vertical" instance=ExtResource("3_c78t1")]
 layout_mode = 2
-
-[node name="Title & Search" type="HBoxContainer" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Search & Names"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Search & Names/Title & Search"]
-layout_mode = 2
-text = "Partners"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Search Field" type="LineEdit" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Search & Names/Title & Search"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Search Names"
-clear_button_enabled = true
-select_all_on_focus = true
-caret_blink = true
-
-[node name="FiltersButton" type="Button" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Search & Names/Title & Search"]
-custom_minimum_size = Vector2(68.93, 0)
-layout_mode = 2
-text = "Filters"
-script = ExtResource("2_tsjpw")
-filters_menu = ExtResource("3_x6rnj")
-
-[node name="Names Container" type="MarginContainer" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Search & Names"]
-layout_mode = 2
-
-[node name="Names List" type="ItemList" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Search & Names/Names Container"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../../Title & Search/Search Field")
-auto_height = true
-item_count = 2
-item_0/text = "Test Item"
-item_1/text = "Second Item"
+title = "Partners"
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/MarginContainer/Partners/Content Vertical"]
 layout_mode = 2
@@ -112,40 +82,31 @@ placeholder_text = "Partner description appears here. "
 selecting_enabled = false
 wrap_mode = 1
 
-[node name="Member Search" type="VBoxContainer" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info"]
+[node name="Member Search" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info" instance=ExtResource("3_c78t1")]
 layout_mode = 2
-theme_override_constants/separation = -5
+title = "Members"
 
-[node name="Title & Search" type="HBoxContainer" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Member Search"]
-layout_mode = 2
-
-[node name="Members Label" type="Label" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Member Search/Title & Search"]
-layout_mode = 2
-text = "Members"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Search Field" type="LineEdit" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Member Search/Title & Search"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Search Names"
-clear_button_enabled = true
-select_all_on_focus = true
-caret_blink = true
-
-[node name="FiltersButton" type="Button" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Member Search/Title & Search"]
-custom_minimum_size = Vector2(68.93, 0)
-layout_mode = 2
-text = "Filters"
-
-[node name="Names Container" type="MarginContainer" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Member Search"]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/MarginContainer/Partners/Content Vertical"]
 layout_mode = 2
 
-[node name="Names List" type="ItemList" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Member Search/Names Container"]
+[node name="Member Info" type="VBoxContainer" parent="VBoxContainer/MarginContainer/Partners/Content Vertical"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../../Title & Search/Search Field")
-auto_height = true
-item_count = 2
-item_0/text = "Test Member"
-item_1/text = "Second Member"
+
+[node name="Info Label" type="Label" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Member Info"]
+layout_mode = 2
+text = "Info:"
+vertical_alignment = 2
+
+[node name="Info Tree" type="Tree" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Member Info"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+script = ExtResource("4_hqtj0")
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Member Info"]
+layout_mode = 2
+text = "Edit Info"
+
+[node name="Wake" parent="." instance=ExtResource("5_62wr0")]
+layout_mode = 1
+
+[connection signal="wake_complete" from="Wake" to="." method="_on_wake_wake_complete"]

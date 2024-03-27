@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6bo7lp40jah3"]
+
+[ext_resource type="Script" path="res://Scripts/Wake.gd" id="1_4b0lw"]
+[ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_puwjw"]
+
+[node name="Wake" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_puwjw")
+script = ExtResource("1_4b0lw")
+file_path = "res://Runtime/Partners.json"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2

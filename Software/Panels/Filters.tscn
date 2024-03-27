@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvns4qwen5y7n"]
+[gd_scene load_steps=6 format=3 uid="uid://bvns4qwen5y7n"]
 
+[ext_resource type="Script" path="res://Scripts/Filters_menu.gd" id="1_4kkbw"]
 [ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_jmr17"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gavyr"]
@@ -20,6 +21,7 @@ symbol_color = Color(0.972549, 0.639216, 0, 1)
 [node name="Filters" type="Window"]
 initial_position = 4
 size = Vector2i(500, 800)
+script = ExtResource("1_4kkbw")
 
 [node name="Nest" type="Control" parent="."]
 layout_mode = 3
@@ -88,3 +90,5 @@ placeholder_text = "Enter tags, seperate with \"; \""
 wrap_mode = 1
 autowrap_mode = 2
 syntax_highlighter = SubResource("CodeHighlighter_c51ct")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

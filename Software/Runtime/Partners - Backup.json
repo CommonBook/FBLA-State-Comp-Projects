@@ -1,0 +1,22 @@
+{
+    "Godot" : {
+        "Members" : {
+            "Steve" : {
+                "Description" : "This is steve",
+                "Phone Number" : 6022222222
+            }
+        },
+        "Type" : "Non-Profit",
+        "Custom Tags" : ["Smart", "Cool", "Free", "Open-Source"]
+    },
+    "Castillo Co." : {
+        "Members" : {
+            "Castillo" : {
+                "Description" : "Castillo is a computer science teacher",
+                "Phone Number" : "Not Provided"
+            }
+        },
+        "Type" : "Education",
+        "Custom Tags" : ["Cool", "Smart", "Handsome"]
+    }
+}
