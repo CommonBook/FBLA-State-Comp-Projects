@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://c50r7thrgw1k4"]
+[gd_scene load_steps=6 format=3 uid="uid://c50r7thrgw1k4"]
 
 [ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_nudk6"]
 [ext_resource type="Script" path="res://Scripts/Filterable List.gd" id="2_horbo"]
 [ext_resource type="PackedScene" uid="uid://bvns4qwen5y7n" path="res://Panels/Filters.tscn" id="4_2ihlg"]
+[ext_resource type="PackedScene" uid="uid://cu8dvana4a37l" path="res://Panels/Edit.tscn" id="4_o3y37"]
 [ext_resource type="Texture2D" uid="uid://rfp7eh540ov8" path="res://Assets/Edit Icon/Edit_Icon.png" id="5_s8ya0"]
 
 [node name="Filterable List" type="VBoxContainer"]
 theme = ExtResource("1_nudk6")
 script = ExtResource("2_horbo")
 filters_menu = ExtResource("4_2ihlg")
+edit_menu = ExtResource("4_o3y37")
 
 [node name="Title & Search" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -48,4 +50,5 @@ auto_height = true
 
 [connection signal="text_changed" from="Title & Search/Search Field" to="." method="_on_search_field_text_changed"]
 [connection signal="pressed" from="Title & Search/Filters Button" to="." method="_on_filters_button_pressed"]
+[connection signal="pressed" from="Title & Search/Edit Button" to="." method="_on_edit_button_pressed"]
 [connection signal="item_clicked" from="Names Container/Names List" to="." method="_on_names_list_item_clicked"]

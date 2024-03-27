@@ -21,6 +21,9 @@ symbol_color = Color(0.972549, 0.639216, 0, 1)
 [node name="Filters" type="Window"]
 initial_position = 4
 size = Vector2i(500, 800)
+exclusive = true
+unresizable = true
+popup_window = true
 script = ExtResource("1_4kkbw")
 
 [node name="Nest" type="Control" parent="."]

@@ -14,7 +14,8 @@ signal item_selected(item_key)
 @onready var editButton : Button = $"Title & Search/Edit Button"
 @onready var filtersButton : Button = $"Title & Search/Filters Button"
 
-@export var filters_menu : PackedScene
+@export var filters_menu : PackedScene ## The [PackedScene] containing the popup filters menu
+@export var edit_menu : PackedScene ## The [PackedScene] containing the popup edit menu
 
 var listInternal : Dictionary = { # This dictionary is the default for use in debugging, it should not appear in the final product.
 	"Godot" : {
@@ -55,7 +56,7 @@ var listInternal : Dictionary = { # This dictionary is the default for use in de
 			"variant" : "tags"
 		}
 	}
-}## List will await an dictionary which will be stored as listInternal 
+} ## List will await an dictionary which will be stored as listInternal 
 
 @export var title : String = "Title" ## The title to be displayed above the list.
 @export var is_editable : bool = true ## Whether the user is able to edit the list.
@@ -116,9 +117,19 @@ func _on_search_field_text_changed(new_text):
 	else:
 		construct()
 
+func launch_menu(menu : PackedScene) -> Node: ## Opens a popup menu. Returns reference to that menu.
+	var open = menu.instantiate()
+	open.owner_list = self
+	add_child(open)
+	
+	return open
+
 # Called when the 'Filters' button is pressed.
 func _on_filters_button_pressed():
 	print("Opening filters menu for " + title)
-	
-	var menu = filters_menu.instantiate()
-	add_child(menu)
+	var menu = launch_menu(filters_menu)
+
+# Called when the edit button is pressed
+func _on_edit_button_pressed():
+	print("Opening edit menu for " + title)
+	var menu = launch_menu(edit_menu)

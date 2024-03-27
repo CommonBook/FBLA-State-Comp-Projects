@@ -1,0 +1,187 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu8dvana4a37l"]
+
+[ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_2qkuv"]
+[ext_resource type="Script" path="res://Scripts/Edit_top.gd" id="1_u3anj"]
+[ext_resource type="StyleBox" uid="uid://d4ciu25quo8ei" path="res://Theme/Panel_Secondary.tres" id="2_4m0e1"]
+[ext_resource type="Script" path="res://Scripts/Choice Panel.gd" id="2_ifaxa"]
+[ext_resource type="Script" path="res://Scripts/New Panel.gd" id="4_j1myn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxnit"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+border_blend = true
+
+[node name="Edit" type="Window"]
+initial_position = 4
+size = Vector2i(600, 300)
+exclusive = true
+unresizable = true
+popup_window = true
+script = ExtResource("1_u3anj")
+
+[node name="Nest" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2qkuv")
+
+[node name="Choice Panel" type="Panel" parent="Nest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxnit")
+script = ExtResource("2_ifaxa")
+
+[node name="CenterContainer" type="CenterContainer" parent="Nest/Choice Panel"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 590.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Nest/Choice Panel/CenterContainer"]
+layout_mode = 2
+
+[node name="Add Button" type="Button" parent="Nest/Choice Panel/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add New"
+
+[node name="Edit Button" type="Button" parent="Nest/Choice Panel/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Edit Existing"
+
+[node name="New Panel" type="Panel" parent="Nest/Choice Panel" node_paths=PackedStringArray("propertyList", "noneLabel", "manualEditor", "tagsEditor", "optionEditor")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxnit")
+script = ExtResource("4_j1myn")
+propertyList = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/ItemList")
+noneLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/None")
+manualEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Manual editor")
+tagsEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Tags Editor")
+optionEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Option Editor")
+
+[node name="MarginContainer" type="MarginContainer" parent="Nest/Choice Panel/New Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 32
+
+[node name="Output" type="Label" parent="Nest/Choice Panel/New Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0.654902, 0.6, 1)
+theme_override_font_sizes/font_size = 10
+text = "Output (Bla Bla Bla)"
+
+[node name="CenterContainer" type="CenterContainer" parent="Nest/Choice Panel/New Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NewLabel" type="Label" parent="Nest/Choice Panel/New Panel/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Add New..."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Nest/Choice Panel/New Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name Field" type="LineEdit" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(121.61, 31.92)
+layout_mode = 2
+placeholder_text = "Enter Name"
+
+[node name="Button" type="Button" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Finish"
+
+[node name="HSeparator" type="HSeparator" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Set Properties: (Empty properties will be N/a)"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 180)
+layout_mode = 2
+
+[node name="Property Editors" type="Panel" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_4m0e1")
+
+[node name="CenterContainer" type="CenterContainer" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="None" type="Label" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "No property selected"
+
+[node name="Manual editor" type="LineEdit" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Enter manual descriptor"
+
+[node name="Tags Editor" type="TextEdit" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(250, 180)
+layout_mode = 2
+placeholder_text = "Enter tags (Seperate with \"; \")"
+
+[node name="Option Editor" type="OptionButton" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="Nest"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Nest/Title"]
+layout_mode = 2
+
+[node name="Menu Label" type="Label" parent="Nest/Title/CenterContainer"]
+layout_mode = 2
+text = "Title:"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Nest/Choice Panel/CenterContainer/HBoxContainer/Add Button" to="Nest/Choice Panel" method="_on_add_button_pressed"]
+[connection signal="pressed" from="Nest/Choice Panel/CenterContainer/HBoxContainer/Edit Button" to="Nest/Choice Panel" method="_on_edit_button_pressed"]
+[connection signal="item_selected" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/ItemList" to="Nest/Choice Panel/New Panel" method="_on_item_list_item_selected"]

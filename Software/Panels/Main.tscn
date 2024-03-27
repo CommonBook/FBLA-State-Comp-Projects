@@ -107,6 +107,7 @@ layout_mode = 2
 text = "Edit Info"
 
 [node name="Wake" parent="." instance=ExtResource("5_62wr0")]
+visible = false
 layout_mode = 1
 
 [connection signal="wake_complete" from="Wake" to="." method="_on_wake_wake_complete"]
