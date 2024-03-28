@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Info Tree.gd" id="4_hqtj0"]
 [ext_resource type="PackedScene" uid="uid://c6bo7lp40jah3" path="res://Panels/Wake.tscn" id="5_62wr0"]
 
-[node name="Nest" type="Control" node_paths=PackedStringArray("partnerSearch", "memberSerch")]
+[node name="Main" type="Control" node_paths=PackedStringArray("partnerSearch", "memberSerch", "partnerDescription") groups=["Main"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,8 @@ theme = ExtResource("1_acdtu")
 script = ExtResource("2_cdc3c")
 partnerSearch = NodePath("VBoxContainer/MarginContainer/Partners/Content Vertical/Partner Search")
 memberSerch = NodePath("VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Member Search")
+partnerDescription = NodePath("VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/Partner Desctription")
+JsonPath = "res://Runtime/Partners.json"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -83,6 +85,7 @@ selecting_enabled = false
 wrap_mode = 1
 
 [node name="Member Search" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info" instance=ExtResource("3_c78t1")]
+visible = false
 layout_mode = 2
 title = "Members"
 
@@ -107,7 +110,6 @@ layout_mode = 2
 text = "Edit Info"
 
 [node name="Wake" parent="." instance=ExtResource("5_62wr0")]
-visible = false
 layout_mode = 1
 
 [connection signal="wake_complete" from="Wake" to="." method="_on_wake_wake_complete"]

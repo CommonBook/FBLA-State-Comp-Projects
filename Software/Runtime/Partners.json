@@ -1,40 +1,142 @@
 {
-	"Godot" : {
-		"Members" : {
-			"value" : {
-				"Steve" : {
-					"Description" : "This is steve",
-					"Phone Number" : 6022222222
+	"Castillo Co.": {
+		"Custom Tags": {
+			"value": [
+				"Cool",
+				"Smart",
+				"Handsome"
+			],
+			"variant": "tags"
+		},
+		"Members": {
+			"value": {
+				"Castillo": {
+					"Description": {
+						"value": "Castillo is a computer science teacher",
+						"variant": "long"
+					},
+					"Phone Number": {
+						"value": "Not Provided",
+						"variant": "manual"
+					}
 				}
 			},
-			"variant" : "list"
+			"variant": "list"
 		},
-		"Type" : {
-			"value" : "Non-Profit",
-			"variant" : "manual"
-		},
-		"Custom Tags" : {
-			"value" : ["Smart", "Cool", "Free", "Open-Source"],
-			"variant" : "tags"
+		"Type": {
+			"value": "Education",
+			"variant": "manual"
 		}
 	},
-	"Castillo Co." : {
-		"Members" : {
-			"value" : {
-				"Castillo" : {
-					"Description" : "Castillo is a computer science teacher",
-					"Phone Number" : "Not Provided"
+	"Godot": {
+		"Custom Tags": {
+			"value": [
+				"Smart",
+				"Cool",
+				"Free",
+				"Open-Source"
+			],
+			"variant": "tags"
+		},
+		"Members": {
+			"value": {
+				"John": {
+
+				},
+				"Steve": {
+					"Description": "This is steve",
+					"Phone Number": 6022222222
 				}
 			},
-			"variant" : "list"
+			"variant": "list"
 		},
-		"Type" : {
-			"value" : "Education",
-			"variant" : "manual"
+		"Type": {
+			"value": "Non-Profit",
+			"variant": "manual"
+		}
+	},
+	"Group": {
+		"Custom Tags": {
+			"value": [
+				"Funny"
+			],
+			"variant": "tags"
 		},
-		"Custom Tags" : {
-			"value" : ["Cool", "Smart", "Handsome"],
-			"variant" : "tags"
+		"Members": {
+			"value": {
+				"Dude": {
+					"Description": {
+						"value": "N/a",
+						"variant": "long"
+					},
+					"Phone Number": {
+						"value": "5771900",
+						"variant": "manual"
+					}
+				},
+				"New": {
+
+				}
+			},
+			"variant": "list"
+		},
+		"Type": {
+			"value": "Funny",
+			"variant": "manual"
+		}
+	},
+	"Group 2": {
+		"Custom Tags": {
+			"value": [
+				"2"
+			],
+			"variant": "tags"
+		},
+		"Members": {
+			"value": {
+				"Guy 2": {
+					"Description": {
+						"value": "N/a",
+						"variant": "long"
+					},
+					"Phone Number": {
+						"value": "911",
+						"variant": "manual"
+					}
+				}
+			},
+			"variant": "list"
+		},
+		"Type": {
+			"value": "2",
+			"variant": "manual"
+		}
+	},
+	"Test Partner": {
+		"Custom Tags": {
+			"value": [
+				"Custom tag"
+			],
+			"variant": "tags"
+		},
+		"Members": {
+			"value": {
+				"Joey": {
+					"Description": {
+						"value": "He's not real",
+						"variant": "long"
+					},
+					"Phone Number": {
+						"value": "Not provided.",
+						"variant": "manual"
+					}
+				}
+			},
+			"variant": "list"
+		},
+		"Type": {
+			"value": "Test",
+			"variant": "manual"
 		}
 	}
 }

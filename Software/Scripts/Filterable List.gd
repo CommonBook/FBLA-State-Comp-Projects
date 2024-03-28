@@ -56,15 +56,15 @@ var listInternal : Dictionary = { # This dictionary is the default for use in de
 			"variant" : "tags"
 		}
 	}
-} ## List will await an dictionary which will be stored as listInternal 
+} ## List will await a dictionary which will be stored as listInternal 
+
+var trailing_key : String = "" ## Stores which key in the parent dictionary contains the internal list. For data storage use. Set by initializer. 
 
 @export var title : String = "Title" ## The title to be displayed above the list.
 @export var is_editable : bool = true ## Whether the user is able to edit the list.
 @export var has_filters : bool = true  ## Whether the user is able to access the filters dialogue.
 
-var filters : Dictionary = {
-	
-}
+var filters : Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -95,7 +95,8 @@ func parse_filters(): # Parses the JSON for filterable data.
 					filters.merge({property : property_dict["variant"]}) # Adds an entry to the filters dictionary containing the name of a property as a key and the variant (type of info input) as its value.
 
 func construct(list = listInternal) -> void: ## Constructs the visual list. 
-	listInternal = list
+	listVisual.clear()
+	
 	if list or len(list) > 0:
 		var keys : Array = listInternal.keys()
 		for key in keys:
@@ -104,7 +105,6 @@ func construct(list = listInternal) -> void: ## Constructs the visual list.
 # Called when an item is clicked inside of the ItemList.
 func _on_names_list_item_clicked(index, _at_position, _mouse_button_index):
 	var selection = listVisual.get_item_text(index)
-	
 	emit_signal("item_selected", selection)
 
 # Called when a change is made to the search field.
