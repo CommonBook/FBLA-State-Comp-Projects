@@ -51,7 +51,7 @@ func _find_and_set(dict : Dictionary, keypath : PackedStringArray, value : Dicti
 		
 		if dict.has(current):
 			keypath.remove_at(0)
-			print("CURRENT " + str(dict[current]))
+			
 			if typeof(dict[current]) == TYPE_STRING:
 				dict[current] = {}
 			_find_and_set(dict[current],keypath, value) # Recursion happens here, dictionary at position along keypath is passed by reference

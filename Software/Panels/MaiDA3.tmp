@@ -81,7 +81,6 @@ hide_names = false
 custom_minimum_size = Vector2(432, 200)
 layout_mode = 2
 placeholder_text = "Partner description appears here. "
-editable = false
 selecting_enabled = false
 wrap_mode = 1
 
@@ -96,7 +95,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Wake" parent="." instance=ExtResource("5_62wr0")]
-visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/CenterContainer/VBoxContainer/Details" to="." method="_on_details_pressed"]

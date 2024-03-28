@@ -75,13 +75,11 @@ text = "Expand Details
 [node name="Partner Info Panel" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/CenterContainer/VBoxContainer" instance=ExtResource("4_5nylh")]
 visible = false
 layout_mode = 2
-hide_names = false
 
 [node name="Partner Desctription" type="TextEdit" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info"]
 custom_minimum_size = Vector2(432, 200)
 layout_mode = 2
 placeholder_text = "Partner description appears here. "
-editable = false
 selecting_enabled = false
 wrap_mode = 1
 

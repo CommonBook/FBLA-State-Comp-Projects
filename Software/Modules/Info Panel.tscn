@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw7o3pdf87pfr"]
+
+[ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_pj751"]
+[ext_resource type="Script" path="res://Scripts/Info Panel.gd" id="2_3q212"]
+[ext_resource type="Script" path="res://Scripts/Member Info Tree.gd" id="2_6tfwd"]
+
+[node name="Info Panel" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1612.0
+offset_bottom = -737.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_pj751")
+script = ExtResource("2_3q212")
+
+[node name="Info Label" type="Label" parent="."]
+layout_mode = 2
+text = "Info:"
+vertical_alignment = 2
+
+[node name="Member Info" type="Tree" parent="."]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+hide_folding = true
+script = ExtResource("2_6tfwd")
+
+[node name="Full Info" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+placeholder_text = "Select an item, full info will display here"
+editable = false
+selecting_enabled = false
+wrap_mode = 1
+
+[connection signal="cell_selected" from="Member Info" to="." method="_on_member_info_cell_selected"]

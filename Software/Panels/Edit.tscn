@@ -62,7 +62,6 @@ layout_mode = 2
 text = "Edit Existing"
 
 [node name="New Panel" type="Panel" parent="Nest/Choice Panel" node_paths=PackedStringArray("propertyList", "noneLabel", "manualEditor", "tagsEditor", "longEditor", "outputLabel")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,7 +136,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 160)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="Add New Property" type="Button" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Add New Property"
 
@@ -197,6 +196,7 @@ text = "Title:"
 [connection signal="text_changed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer/Name Field" to="Nest/Choice Panel/New Panel" method="_on_name_field_text_changed"]
 [connection signal="pressed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer/Finish Button" to="Nest/Choice Panel/New Panel" method="_on_finish_button_pressed"]
 [connection signal="item_selected" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ItemList" to="Nest/Choice Panel/New Panel" method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Add New Property" to="Nest/Choice Panel/New Panel" method="_on_add_new_property_pressed"]
 [connection signal="text_changed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Manual editor" to="Nest/Choice Panel/New Panel" method="_on_manual_editor_text_changed"]
 [connection signal="text_changed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Tags Editor" to="Nest/Choice Panel/New Panel" method="_on_tags_editor_text_changed"]
 [connection signal="text_changed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Long Editor" to="Nest/Choice Panel/New Panel" method="_on_long_editor_text_changed"]

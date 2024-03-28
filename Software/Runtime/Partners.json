@@ -41,11 +41,24 @@
 		"Members": {
 			"value": {
 				"John": {
-
+					"Description": {
+						"value": "john.",
+						"variant": "long"
+					},
+					"Phone Number": {
+						"value": "Nobody knows.",
+						"variant": "manual"
+					}
 				},
 				"Steve": {
-					"Description": "This is steve",
-					"Phone Number": 6022222222
+					"Description": {
+						"value": "This is steve",
+						"variant": "long"
+					},
+					"Phone Number": {
+						"value": "602-222-2222",
+						"variant": "manual"
+					}
 				}
 			},
 			"variant": "list"

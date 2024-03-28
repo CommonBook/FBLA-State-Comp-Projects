@@ -2,12 +2,18 @@ extends Control
 ## Main controls the main UI and saves data to the JSON file.
 
 # Get various components.
+@export_category("Components")
 @export var partnerSearch : Node
 @export var memberSerch : Node
 @export var partnerDescription : TextEdit
+@export var memberInfo : Info_Panel
+@export var partner_info : Info_Panel
+@export var expand_button : Button
 
 @export_category("Meta")
 @export var JsonPath : String ## String path to the main data file.
+
+var selected_partner : String = "" ## Stores the name of the last selected partner.
 
 var data : Dictionary
 
@@ -24,6 +30,7 @@ func _on_wake_wake_complete():
 	memberSerch.hide()
 	
 	partnerSearch.connect("item_selected", Callable(self, "_on_partner_selected"))
+	memberSerch.connect("item_selected", Callable(self, "_on_member_selected"))
 
 func construct(list : Node, in_data : Dictionary = data, hold_filters : bool = false) -> void: ## Prepares the main partners list
 	list.listInternal = in_data
@@ -39,6 +46,10 @@ func update_data(input) -> void: ## Reloads startup function with new data
 
 # Called whenever the item selected signal is recieved from the partner search [Filterable_List]
 func _on_partner_selected(partner):
+	selected_partner = partner
+	
+	partner_info.assign_member(partner, data[partner])
+	
 	# Show description
 	if data[partner].has("description"):
 		partnerDescription.text = data["partner"]["description"]
@@ -58,4 +69,16 @@ func _on_partner_selected(partner):
 						construct(memberSerch, {}, true)
 		
 		memberSerch.trailing_key = "" + str(partner) + "/" + "Members"
-		
+
+# Called whenever the item selected signal is recieved from the member search [Filterable_List]
+func _on_member_selected(member):
+	memberInfo.assign_member(member, data[selected_partner]["Members"]["value"][member])
+
+# Called when the 'Expand Details' button is pressed. 
+func _on_details_pressed():
+	if not partner_info.visible:
+		partner_info.show()
+		expand_button.text = "Collapse Details"
+	else:
+		partner_info.hide()
+		expand_button.text = "Expand Details"

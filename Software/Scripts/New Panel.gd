@@ -102,3 +102,7 @@ func _on_long_editor_text_changed():
 	var text : String = longEditor.text
 	_store_property_result({"value":text,
 							"variant":filters[current_key]})
+
+# Called when the new property button is pressed.
+func _on_add_new_property_pressed():
+	pass # Replace with function body.
