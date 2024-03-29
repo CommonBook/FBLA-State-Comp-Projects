@@ -1,4 +1,4 @@
-extends Panel
+class_name Property_Editor extends Panel
 ## Handles the GUI functionality of the edit menu
 
 var filters : Dictionary
@@ -15,14 +15,18 @@ signal close ## Emitted when the panel has sent its finished result. Tells the w
 @export var longEditor : TextEdit
 @export var outputLabel : Label 
 
-var properties_enabled : bool = false
+@export var newPropertyScreen : PackedScene
+
+var properties_enabled : bool = false ## Detrmines whether lower input fields can be used.
 var item_name : String ## Stores the user's item name.
 var item_properties : Dictionary = {}## Stores the definitions the user gives each property as a dictionary.
 var new_item : Dictionary ## Stores the state of the new item to be added.
+var tags_text : String  ## Stores the tags input as a text form to prevent errors
 
 var current_key : String ## Tracks the property being modified currently.
 
 func construct(list : Dictionary = filters) -> void: ## Build the list options from the dictionary keys
+	propertyList.clear()
 	if filters:
 		for key in filters.keys():
 			propertyList.add_item(key)
@@ -36,25 +40,31 @@ func _hide_options() -> void:
 	longEditor.hide()
 
 # Called when an item in the property list is selected.
-func _on_item_list_item_selected(index):
+func _on_item_list_item_selected(index) -> void:
 	if properties_enabled:
 		# Pass key from list to top node.
 		current_key = propertyList.get_item_text(index)
 		
+		# Shows only the input field for the asssociated item type.
+		#
+		# I realize now that this could have been done with objects,
+		# making the code more dynamic, but this is a prototype and
+		# so this and other code like it will remain this way for
+		# time's sake.
 		_hide_options()
 		match filters[current_key]:
 			"tags":
 				tagsEditor.show()
-				if item_properties[current_key]["value"] != "N/a":
-					tagsEditor.text = item_properties[current_key]
+				if tags_text != "":
+					tagsEditor.text = tags_text
 			"manual":
 				manualEditor.show()
 				if item_properties[current_key]["value"] != "N/a":
-					manualEditor.text = item_properties[current_key]
+					manualEditor.text = item_properties[current_key]["value"]
 			"long":
 				longEditor.show()
 				if item_properties[current_key]["value"] != "N/a":
-					longEditor.text = item_properties[current_key]
+					longEditor.text = item_properties[current_key]["value"]
 			"list":
 				_hide_options()
 				noneLabel.show()
@@ -83,8 +93,8 @@ func _on_manual_editor_text_changed(new_text):
 
 # Called when the tags editor text is changed.
 func _on_tags_editor_text_changed():
-	var text : String = tagsEditor.text
-	var tags_list : PackedStringArray = text.split("; ", false)
+	tags_text = tagsEditor.text
+	var tags_list : PackedStringArray = tags_text.split("; ", false)
 	
 	_store_property_result({"value":tags_list,
 							"variant":filters[current_key]})
@@ -105,4 +115,13 @@ func _on_long_editor_text_changed():
 
 # Called when the new property button is pressed.
 func _on_add_new_property_pressed():
-	pass # Replace with function body.
+	# Opens the new property window
+	var window = newPropertyScreen.instantiate()
+	add_child(window)
+	
+	window.parent = self
+
+# Adds a property to the list of options.
+func add_property(property_name, property_type):
+	filters.merge({property_name:property_type})
+	construct()

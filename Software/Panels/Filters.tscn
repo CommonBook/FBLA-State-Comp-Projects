@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Filters_menu.gd" id="1_4kkbw"]
 [ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_jmr17"]
+[ext_resource type="PackedScene" uid="uid://b53b4fn66udna" path="res://Modules/Filter Fields/Long Edit Filter Field.tscn" id="2_7bvn5"]
+[ext_resource type="PackedScene" uid="uid://bh8i6ehmji4di" path="res://Modules/Filter Fields/Manual Edit Filter Field.tscn" id="3_vmvmf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gavyr"]
 content_margin_left = 8.0
@@ -11,13 +13,6 @@ content_margin_bottom = 4.0
 bg_color = Color(0.960784, 0.960784, 0.960784, 1)
 border_blend = true
 
-[sub_resource type="LabelSettings" id="LabelSettings_y8f0m"]
-font_size = 18
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_c51ct"]
-symbol_color = Color(0.972549, 0.639216, 0, 1)
-
 [node name="Filters" type="Window"]
 initial_position = 4
 size = Vector2i(500, 800)
@@ -25,6 +20,8 @@ exclusive = true
 unresizable = true
 popup_window = true
 script = ExtResource("1_4kkbw")
+long_edit_filter_field = ExtResource("2_7bvn5")
+manual_edit_filter_field = ExtResource("3_vmvmf")
 
 [node name="Nest" type="Control" parent="."]
 layout_mode = 3
@@ -35,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_jmr17")
 
-[node name="Panel" type="Panel" parent="Nest"]
+[node name="BG" type="Panel" parent="Nest"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,54 +41,23 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gavyr")
 
-[node name="Main" type="ScrollContainer" parent="Nest"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Main" type="MarginContainer" parent="Nest"]
+layout_mode = 2
+offset_right = 420.0
+offset_bottom = 147.0
+size_flags_horizontal = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="Nest/Main"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Nest/Main"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Nest/Main/MarginContainer"]
-layout_mode = 2
-
-[node name="Title Label" type="Label" parent="Nest/Main/MarginContainer/VBoxContainer"]
+[node name="Title Label" type="Label" parent="Nest/Main/VBoxContainer"]
 layout_mode = 2
 text = "Filters:"
 
-[node name="HSeparator" type="HSeparator" parent="Nest/Main/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Nest/Main/VBoxContainer"]
 layout_mode = 2
 
-[node name="Type Label" type="Label" parent="Nest/Main/MarginContainer/VBoxContainer"]
+[node name="Body" type="VBoxContainer" parent="Nest/Main/VBoxContainer"]
 layout_mode = 2
-text = "Organization Type:"
-label_settings = SubResource("LabelSettings_y8f0m")
-
-[node name="OptionButton" type="OptionButton" parent="Nest/Main/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-item_count = 1
-selected = 0
-popup/item_0/text = "None (No Filter)"
-popup/item_0/id = 0
-
-[node name="Custom Tags" type="Label" parent="Nest/Main/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Custom Tags"
-
-[node name="TextEdit" type="TextEdit" parent="Nest/Main/MarginContainer/VBoxContainer/Custom Tags"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-offset_top = 29.0
-offset_right = 400.0
-offset_bottom = 229.0
-placeholder_text = "Enter tags, seperate with \"; \""
-wrap_mode = 1
-autowrap_mode = 2
-syntax_highlighter = SubResource("CodeHighlighter_c51ct")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

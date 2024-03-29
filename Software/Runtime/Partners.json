@@ -1,12 +1,21 @@
 {
 	"Castillo Co.": {
+		"Alias": {
+			"value": "Castillo",
+			"variant": "manual"
+		},
 		"Custom Tags": {
 			"value": [
 				"Cool",
 				"Smart",
-				"Handsome"
+				"Handsome",
+				"Fictional"
 			],
 			"variant": "tags"
+		},
+		"Description": {
+			"value": "Castillo Co. ltd aims to develop the future youth by teaching vital technology skills.",
+			"variant": "long"
 		},
 		"Members": {
 			"value": {
@@ -28,119 +37,115 @@
 			"variant": "manual"
 		}
 	},
-	"Godot": {
+	"Future Business Leaders of America": {
+		"Alias": {
+			"value": "FBLA",
+			"variant": "manual"
+		},
 		"Custom Tags": {
 			"value": [
-				"Smart",
-				"Cool",
-				"Free",
-				"Open-Source"
+				"Business",
+				"Leadership",
+				"Student-led",
+				"FBLA",
+				"CTSO",
+				"Event-Based"
 			],
 			"variant": "tags"
 		},
+		"Description": {
+			"value": "Future Business Leaders of America, Inc. (FBLA) is the largest business Career and Technical Student Organization in the world. Each year, FBLA helps over 230,000 members prepare for careers in business.",
+			"variant": "long"
+		},
 		"Members": {
 			"value": {
-				"John": {
+				"Alexander T. Graham": {
 					"Description": {
-						"value": "john.",
+						"value": "Alex Graham has over 25 years of association management experience. Prior joining Future Business Leaders of America (FBLA), Alex served as CEO of the Council for Exceptional Children (CEC). His prior association positions include executive director, chief operating officer, chief marketing officer, director of political affairs and membership director. Alex’s experience includes managing financial, human resource, and strategic planning programs, as well as membership, marketing, government/public affairs and conference development. In addition to earning a Bachelor of Arts degree in Political Science from Lynchburg College in Lynchburg, Virginia, Alex earned a Master of Science degree in Organizational Effectiveness and a Master of Business Administration degree from Marymount University in Arlington, Virginia.",
 						"variant": "long"
 					},
+					"E-Mail": {
+						"value": "agraham@fbla.org",
+						"variant": "manual"
+					},
 					"Phone Number": {
-						"value": "Nobody knows.",
+						"value": "703-860-3337",
+						"variant": "manual"
+					},
+					"Role": {
+						"value": "CEO & President",
 						"variant": "manual"
 					}
 				},
-				"Steve": {
+				"Bob Kollar": {
 					"Description": {
-						"value": "This is steve",
+						"value": "Bob Kollar is an Associate Professor of Practice in Accounting at the Palumbo-Donahue School of Business where he teaches a variety of undergraduate and graduate accounting courses. Since joining the School in 2003, Bob has been recognized several times for his teaching ability, receiving both the School of Business Rethwish Outstanding Teacher Award and the School of Business Outstanding Educator Award.",
 						"variant": "long"
 					},
+					"E-Mail": {
+						"value": "kollar@duq.edu",
+						"variant": "manual"
+					},
 					"Phone Number": {
-						"value": "602-222-2222",
+						"value": "(412) 396-4906",
+						"variant": "manual"
+					},
+					"Role": {
+						"value": "Chair",
 						"variant": "manual"
 					}
-				}
-			},
-			"variant": "list"
-		},
-		"Type": {
-			"value": "Non-Profit",
-			"variant": "manual"
-		}
-	},
-	"Group": {
-		"Custom Tags": {
-			"value": [
-				"Funny"
-			],
-			"variant": "tags"
-		},
-		"Members": {
-			"value": {
-				"Dude": {
+				},
+				"Ed Wilkins": {
 					"Description": {
 						"value": "N/a",
 						"variant": "long"
 					},
+					"E-Mail": {
+						"value": "N/a",
+						"variant": "manual"
+					},
 					"Phone Number": {
-						"value": "5771900",
+						"value": "N/a",
+						"variant": "manual"
+					},
+					"Role": {
+						"value": "Treasurer",
 						"variant": "manual"
 					}
 				},
-				"New": {
-
-				}
-			},
-			"variant": "list"
-		},
-		"Type": {
-			"value": "Funny",
-			"variant": "manual"
-		}
-	},
-	"Group 2": {
-		"Custom Tags": {
-			"value": [
-				"2"
-			],
-			"variant": "tags"
-		},
-		"Members": {
-			"value": {
-				"Guy 2": {
+				"Toby Neal": {
 					"Description": {
 						"value": "N/a",
 						"variant": "long"
 					},
-					"Phone Number": {
-						"value": "911",
+					"E-Mail": {
+						"value": "N/a",
 						"variant": "manual"
-					}
-				}
-			},
-			"variant": "list"
-		},
-		"Type": {
-			"value": "2",
-			"variant": "manual"
-		}
-	},
-	"Test Partner": {
-		"Custom Tags": {
-			"value": [
-				"Custom tag"
-			],
-			"variant": "tags"
-		},
-		"Members": {
-			"value": {
-				"Joey": {
-					"Description": {
-						"value": "He's not real",
-						"variant": "long"
 					},
 					"Phone Number": {
-						"value": "Not provided.",
+						"value": "N/a",
+						"variant": "manual"
+					},
+					"Role": {
+						"value": "Collegiate National President",
+						"variant": "manual"
+					}
+				},
+				"Wendy Mills": {
+					"Description": {
+						"value": "N/a",
+						"variant": "long"
+					},
+					"E-Mail": {
+						"value": "N/a",
+						"variant": "manual"
+					},
+					"Phone Number": {
+						"value": "N/a",
+						"variant": "manual"
+					},
+					"Role": {
+						"value": "Secretary",
 						"variant": "manual"
 					}
 				}
@@ -148,7 +153,7 @@
 			"variant": "list"
 		},
 		"Type": {
-			"value": "Test",
+			"value": "CTSO",
 			"variant": "manual"
 		}
 	}

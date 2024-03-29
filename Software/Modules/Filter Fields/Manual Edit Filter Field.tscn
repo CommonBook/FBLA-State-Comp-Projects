@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh8i6ehmji4di"]
+
+[ext_resource type="Script" path="res://Modules/Filter Fields/Filter Field.gd" id="1_wh1b6"]
+
+[node name="Manual Edit Filter Field" type="LineEdit"]
+custom_minimum_size = Vector2(400, 30)
+placeholder_text = "Enter value"
+script = ExtResource("1_wh1b6")
+
+[connection signal="text_changed" from="." to="." method="_on_changed"]

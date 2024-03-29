@@ -44,6 +44,7 @@ icon = ExtResource("5_s8ya0")
 layout_mode = 2
 
 [node name="Names List" type="ItemList" parent="Names Container"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../Title & Search/Search Field")
 auto_height = true

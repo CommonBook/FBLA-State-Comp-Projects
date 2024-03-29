@@ -1,3 +1,110 @@
-[gd_scene format=3 uid="uid://bld35k241i6v7"]
+[gd_scene load_steps=4 format=3 uid="uid://bld35k241i6v7"]
 
-[node name="New Property" type="Window"]
+[ext_resource type="Script" path="res://Scripts/New Property.gd" id="1_6476a"]
+[ext_resource type="Theme" uid="uid://dpitgjhhbn8fu" path="res://Theme/Main.tres" id="1_sq46a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkm6c"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+border_blend = true
+
+[node name="New Property" type="Window" node_paths=PackedStringArray("property_type_selector", "lineEditEx", "textEditEx")]
+transparent_bg = true
+initial_position = 4
+size = Vector2i(200, 215)
+transient = true
+exclusive = true
+unresizable = true
+script = ExtResource("1_6476a")
+property_type_selector = NodePath("Body/MarginContainer/Main/Property Type")
+lineEditEx = NodePath("Body/MarginContainer/Main/LineEditEX")
+textEditEx = NodePath("Body/MarginContainer/Main/TextEditEX")
+
+[node name="Body" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sq46a")
+
+[node name="BG" type="Panel" parent="Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tkm6c")
+
+[node name="Title" type="CenterContainer" parent="Body"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/Title"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Body/Title/VBoxContainer"]
+layout_mode = 2
+text = "New Property:"
+
+[node name="MarginContainer" type="MarginContainer" parent="Body"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 0
+
+[node name="Main" type="VBoxContainer" parent="Body/MarginContainer"]
+layout_mode = 2
+
+[node name="Done" type="Button" parent="Body/MarginContainer/Main"]
+layout_mode = 2
+text = "Done"
+
+[node name="Property Name" type="LineEdit" parent="Body/MarginContainer/Main"]
+custom_minimum_size = Vector2(180, 30)
+layout_mode = 2
+placeholder_text = "Enter Property Name"
+
+[node name="HSeparator" type="HSeparator" parent="Body/MarginContainer/Main"]
+layout_mode = 2
+
+[node name="Property Type" type="OptionButton" parent="Body/MarginContainer/Main"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Manual"
+popup/item_0/id = 0
+popup/item_1/text = "Long"
+popup/item_1/id = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Body/MarginContainer/Main"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Body/MarginContainer/Main"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Example input field:"
+
+[node name="LineEditEX" type="LineEdit" parent="Body/MarginContainer/Main"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+placeholder_text = "Manual input (Example)"
+
+[node name="TextEditEX" type="TextEdit" parent="Body/MarginContainer/Main"]
+visible = false
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Body/MarginContainer/Main/Done" to="." method="_on_done_pressed"]
+[connection signal="text_changed" from="Body/MarginContainer/Main/Property Name" to="." method="_on_property_name_text_changed"]
+[connection signal="item_selected" from="Body/MarginContainer/Main/Property Type" to="." method="_on_property_type_item_selected"]

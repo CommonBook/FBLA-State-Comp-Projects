@@ -128,8 +128,58 @@ func launch_menu(menu : PackedScene) -> Node: ## Opens a popup menu. Returns ref
 func _on_filters_button_pressed():
 	print("Opening filters menu for " + title)
 	var menu = launch_menu(filters_menu)
+	
+	menu.apply_filters(filters)
 
-# Called when the edit button is pressed
+# Called when the edit button is pressed. 
 func _on_edit_button_pressed():
 	print("Opening edit menu for " + title)
 	var menu = launch_menu(edit_menu)
+
+# Checks all items in root data for values under a certain key
+func apply_filters(filters_output : Dictionary):
+	var filtered_list : Array = []
+	
+	# Only filter if the filter contents are not empty.
+	if filters_output != {}:
+	
+		listVisual.clear()
+		print(filters_output)
+		for item in listInternal:
+			for filter in filters_output:
+				
+				# Execute here if the filter is not a list
+				if typeof(filters_output[filter]) != TYPE_ARRAY and typeof(filters_output[filter]) != TYPE_PACKED_STRING_ARRAY :
+					
+					# Check if this item even has this property. If it does not, ignore it. 
+					if listInternal[item].has(filter):
+						print(filters_output[filter])
+						if filters_output[filter].to_lower() in listInternal[item][filter]["value"].to_lower():
+							if item not in filtered_list:
+								filtered_list.append(item)
+							
+						else: 
+							filtered_list.remove_at(filtered_list.find(item))
+							continue
+					else: 
+						filtered_list.remove_at(filtered_list.find(item))
+						continue
+				else: # Seperate case for array results
+					for value in filters_output[filter]:
+						if listInternal[item].has(filter):
+							if value in listInternal[item][filter]["value"]:
+								if item not in filtered_list:
+									filtered_list.append(item)
+							else: 
+								filtered_list.remove_at(filtered_list.find(item))
+								continue
+						else: 
+							filtered_list.remove_at(filtered_list.find(item))
+							continue
+	else:
+		construct()
+	
+	# Finally, adds items from filtered list to visual list
+	for item in filtered_list:
+		listVisual.add_item(item)
+

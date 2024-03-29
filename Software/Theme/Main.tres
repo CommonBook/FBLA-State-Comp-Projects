@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dpitgjhhbn8fu"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://dpitgjhhbn8fu"]
 
 [ext_resource type="SystemFont" uid="uid://ce0cxpc6yi6jg" path="res://Theme/Font/Announce.tres" id="1_j1tl8"]
+[ext_resource type="StyleBox" uid="uid://o1ooflobdfuf" path="res://Theme/Button/Button_hover.tres" id="2_p472o"]
 [ext_resource type="StyleBox" uid="uid://bisr35bm2txfb" path="res://Theme/Button/Button_normal.tres" id="2_un10g"]
-[ext_resource type="StyleBox" uid="uid://o1ooflobdfuf" path="res://Theme/Button/CheckButton_normal.tres" id="3_14vj4"]
 [ext_resource type="StyleBox" uid="uid://dhdpqf1q3gnlt" path="res://Theme/Panel_Main.tres" id="3_b0idh"]
+[ext_resource type="StyleBox" uid="uid://cql8n0c1naopu" path="res://Theme/Button/Button_press.tres" id="4_42jtp"]
 [ext_resource type="StyleBox" uid="uid://cc1t52cpuqs8g" path="res://Theme/Line_Seperator.tres" id="4_dye0u"]
 [ext_resource type="SystemFont" uid="uid://b2tixq2dwt760" path="res://Theme/Font/Title.tres" id="4_r8rro"]
 [ext_resource type="StyleBox" uid="uid://cswgy8uuc10u3" path="res://Theme/LineEdit/LineEdit_normal.tres" id="5_oj6iq"]
@@ -23,8 +24,10 @@ vertical = true
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/fonts/font = ExtResource("1_j1tl8")
+Button/styles/hover = ExtResource("2_p472o")
 Button/styles/normal = ExtResource("2_un10g")
-CheckButton/styles/normal = ExtResource("3_14vj4")
+Button/styles/pressed = ExtResource("4_42jtp")
+CheckButton/styles/normal = ExtResource("2_p472o")
 HBoxContainer/constants/separation = 20
 HSeparator/styles/separator = ExtResource("4_dye0u")
 ItemList/colors/font_color = Color(0.0352941, 0.0352941, 0.0352941, 1)
@@ -48,6 +51,7 @@ MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
+OptionButton/styles/normal = ExtResource("2_un10g")
 Panel/styles/panel = ExtResource("3_b0idh")
 TabContainer/colors/drop_mark_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_outline_color = Color(0, 0, 0, 1)

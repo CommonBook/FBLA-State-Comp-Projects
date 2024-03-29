@@ -11,7 +11,7 @@ extends Control
 @export var expand_button : Button
 
 @export_category("Meta")
-@export var JsonPath : String ## String path to the main data file.
+var JsonPath : String ## String path to the main data file.
 
 var selected_partner : String = "" ## Stores the name of the last selected partner.
 
@@ -51,8 +51,8 @@ func _on_partner_selected(partner):
 	partner_info.assign_member(partner, data[partner])
 	
 	# Show description
-	if data[partner].has("description"):
-		partnerDescription.text = data["partner"]["description"]
+	if data[partner].has("Description"):
+		partnerDescription.text = data[partner]["Description"]["value"]
 	
 	memberSerch.show()
 	

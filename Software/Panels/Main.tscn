@@ -21,16 +21,13 @@ partnerDescription = NodePath("VBoxContainer/MarginContainer/Partners/Content Ve
 memberInfo = NodePath("VBoxContainer/MarginContainer/Partners/Content Vertical/Member Info Panel")
 partner_info = NodePath("VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/CenterContainer/VBoxContainer/Partner Info Panel")
 expand_button = NodePath("VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/CenterContainer/VBoxContainer/Details")
-JsonPath = "res://Runtime/Partners.json"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -199.0
+offset_bottom = 20.0
 grow_horizontal = 2
-grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -78,7 +75,7 @@ layout_mode = 2
 hide_names = false
 
 [node name="Partner Desctription" type="TextEdit" parent="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info"]
-custom_minimum_size = Vector2(432, 200)
+custom_minimum_size = Vector2(500.17, 200)
 layout_mode = 2
 placeholder_text = "Partner description appears here. "
 editable = false
@@ -96,8 +93,8 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Wake" parent="." instance=ExtResource("5_62wr0")]
-visible = false
 layout_mode = 1
+export = true
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/Partners/Content Vertical/Partner info/CenterContainer/VBoxContainer/Details" to="." method="_on_details_pressed"]
 [connection signal="wake_complete" from="Wake" to="." method="_on_wake_wake_complete"]

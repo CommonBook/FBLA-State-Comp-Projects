@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Edit_top.gd" id="1_u3anj"]
 [ext_resource type="StyleBox" uid="uid://d4ciu25quo8ei" path="res://Theme/Panel_Secondary.tres" id="2_4m0e1"]
 [ext_resource type="Script" path="res://Scripts/Choice Panel.gd" id="2_ifaxa"]
-[ext_resource type="Script" path="res://Scripts/Property Editor.gd" id="4_xf4n0"]
+[ext_resource type="Script" path="res://Scripts/New Panel.gd" id="4_j1myn"]
 [ext_resource type="PackedScene" uid="uid://bld35k241i6v7" path="res://Panels/New Property.tscn" id="5_mr7q8"]
 [ext_resource type="Script" path="res://Scripts/Select Panel.gd" id="7_ip3vc"]
 
@@ -23,6 +23,7 @@ transient = true
 exclusive = true
 unresizable = true
 script = ExtResource("1_u3anj")
+newPropertyScreen = ExtResource("5_mr7q8")
 
 [node name="Nest" type="Control" parent="."]
 layout_mode = 3
@@ -72,14 +73,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nxnit")
-script = ExtResource("4_xf4n0")
+script = ExtResource("4_j1myn")
 propertyList = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ItemList")
 noneLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/None")
 manualEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Manual editor")
 tagsEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Tags Editor")
 longEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Long Editor")
 outputLabel = NodePath("MarginContainer/Output")
-newPropertyScreen = ExtResource("5_mr7q8")
 
 [node name="MarginContainer" type="MarginContainer" parent="Nest/Choice Panel/New Panel"]
 layout_mode = 1
@@ -173,17 +173,14 @@ visible = false
 custom_minimum_size = Vector2(250, 180)
 layout_mode = 2
 placeholder_text = "Enter tags (Seperate with \"; \")"
-wrap_mode = 1
 
 [node name="Long Editor" type="TextEdit" parent="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer"]
 visible = false
 custom_minimum_size = Vector2(250, 180)
 layout_mode = 2
 placeholder_text = "Enter description."
-wrap_mode = 1
 
-[node name="Select Panel" type="Panel" parent="Nest/Choice Panel" node_paths=PackedStringArray("list", "editPanel")]
-visible = false
+[node name="Select Panel" type="Panel" parent="Nest/Choice Panel" node_paths=PackedStringArray("list")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -191,8 +188,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_ip3vc")
-list = NodePath("MarginContainer/CenterContainer/VBoxContainer/ItemList")
-editPanel = NodePath("../Edit Panel")
+list = NodePath("../New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ItemList")
 
 [node name="MarginContainer" type="MarginContainer" parent="Nest/Choice Panel/Select Panel"]
 layout_mode = 1
@@ -236,14 +232,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nxnit")
-script = ExtResource("4_xf4n0")
-propertyList = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ItemList")
-noneLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/None")
-manualEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Manual editor")
-tagsEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Tags Editor")
-longEditor = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Long Editor")
-outputLabel = NodePath("MarginContainer/Output")
-newPropertyScreen = ExtResource("5_mr7q8")
+script = ExtResource("4_j1myn")
+propertyList = NodePath("../New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ItemList")
+noneLabel = NodePath("../New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/None")
+manualEditor = NodePath("../New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Manual editor")
+tagsEditor = NodePath("../New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Tags Editor")
+longEditor = NodePath("../New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Long Editor")
+outputLabel = NodePath("../New Panel/MarginContainer/Output")
 
 [node name="MarginContainer" type="MarginContainer" parent="Nest/Choice Panel/Edit Panel"]
 layout_mode = 1
@@ -365,15 +360,14 @@ text = "Title:"
 [connection signal="text_changed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer/Name Field" to="Nest/Choice Panel/New Panel" method="_on_name_field_text_changed"]
 [connection signal="pressed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer/Finish Button" to="Nest/Choice Panel/New Panel" method="_on_finish_button_pressed"]
 [connection signal="item_selected" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ItemList" to="Nest/Choice Panel/New Panel" method="_on_item_list_item_selected"]
-[connection signal="pressed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Add New Property" to="Nest/Choice Panel/New Panel" method="_on_add_new_property_pressed"]
+[connection signal="pressed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Add New Property" to="." method="_on_add_new_property_pressed"]
 [connection signal="text_changed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Manual editor" to="Nest/Choice Panel/New Panel" method="_on_manual_editor_text_changed"]
 [connection signal="text_changed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Tags Editor" to="Nest/Choice Panel/New Panel" method="_on_tags_editor_text_changed"]
 [connection signal="text_changed" from="Nest/Choice Panel/New Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Long Editor" to="Nest/Choice Panel/New Panel" method="_on_long_editor_text_changed"]
-[connection signal="item_selected" from="Nest/Choice Panel/Select Panel/MarginContainer/CenterContainer/VBoxContainer/ItemList" to="Nest/Choice Panel/Select Panel" method="_on_item_list_item_selected"]
 [connection signal="text_changed" from="Nest/Choice Panel/Edit Panel/MarginContainer/VBoxContainer/HBoxContainer/Name Field" to="Nest/Choice Panel/Edit Panel" method="_on_name_field_text_changed"]
 [connection signal="pressed" from="Nest/Choice Panel/Edit Panel/MarginContainer/VBoxContainer/HBoxContainer/Finish Button" to="Nest/Choice Panel/Edit Panel" method="_on_finish_button_pressed"]
 [connection signal="item_selected" from="Nest/Choice Panel/Edit Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ItemList" to="Nest/Choice Panel/Edit Panel" method="_on_item_list_item_selected"]
-[connection signal="pressed" from="Nest/Choice Panel/Edit Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Add New Property" to="Nest/Choice Panel/Edit Panel" method="_on_add_new_property_pressed"]
+[connection signal="pressed" from="Nest/Choice Panel/Edit Panel/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Add New Property" to="." method="_on_add_new_property_pressed"]
 [connection signal="text_changed" from="Nest/Choice Panel/Edit Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Manual editor" to="Nest/Choice Panel/Edit Panel" method="_on_manual_editor_text_changed"]
 [connection signal="text_changed" from="Nest/Choice Panel/Edit Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Tags Editor" to="Nest/Choice Panel/Edit Panel" method="_on_tags_editor_text_changed"]
 [connection signal="text_changed" from="Nest/Choice Panel/Edit Panel/MarginContainer/VBoxContainer/HBoxContainer2/Property Editors/CenterContainer/Long Editor" to="Nest/Choice Panel/Edit Panel" method="_on_long_editor_text_changed"]

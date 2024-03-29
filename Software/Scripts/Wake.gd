@@ -4,7 +4,8 @@ extends Control
 @onready var nest : Control = get_parent()
 @onready var progress : ProgressBar = $Panel/CenterContainer/ProgressBar
 
-@export var file_path : String
+@export var export = false
+@onready var file_path : String = OS.get_executable_path().get_base_dir() + "/Partners.json" if export else "res://Runtime/Partners.json"
 
 var busy : bool = true ## Tracks whether the script is still parsing. Used to control loading speed.
 
@@ -37,6 +38,7 @@ var final_data : Dictionary ## Eventually stores the resulting dictionary of dat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("PATH: " + file_path)
 	
 	# Open json file and parse as text
 	var file = FileAccess.open(file_path, FileAccess.READ)
@@ -58,6 +60,7 @@ func _ready() -> void:
 func push_data() -> void: ## Moves the finalized data to the nest of the main scene, then marks the wake as no longer busy
 	if nest:
 		nest.data = final_data
+		nest.JsonPath = file_path
 	else:
 		push_error("Wake: No owner found.")
 	

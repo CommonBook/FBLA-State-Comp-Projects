@@ -5,8 +5,8 @@ var owner_list ## Assigned by initializer. Reference to the parent node.
 
 # Get various components
 @onready var titleLabel : Label = $"Nest/Title/CenterContainer/Menu Label"
-@onready var newPanel : Node = $"Nest/Choice Panel/New Panel"
-
+@onready var newPanel : Property_Editor = $"Nest/Choice Panel/New Panel"
+@onready var editPanel : Property_Editor = $"Nest/Choice Panel/Edit Panel"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +15,10 @@ func _ready():
 	newPanel.connect("item_set", Callable(self, "_on_item_recieved"))
 	newPanel.filters = filters
 	newPanel.construct()
+	
+	editPanel.connect("close", Callable(self, "_on_close_requested"))
+	editPanel.connect("item_set", Callable(self, "_on_item_recieved"))
+	editPanel.filters = filters
 	
 	# Prepare extra UI elements
 	titleLabel.text = owner_list.title
