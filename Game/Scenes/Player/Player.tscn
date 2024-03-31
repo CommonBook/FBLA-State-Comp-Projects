@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctenyqhblarao"]
+
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_cv1ly"]
+[ext_resource type="SpriteFrames" uid="uid://cyhx36aijj6v" path="res://Components/Spritesheets/Blue-Dino.tres" id="1_xtjgv"]
+[ext_resource type="PackedScene" uid="uid://c48ehgqvhoipn" path="res://Scenes/ItemCaster/ItemCaster.tscn" id="3_4gt34"]
+[ext_resource type="PackedScene" uid="uid://c2tawok5tnqhb" path="res://Scenes/ItemCaster/Items/Net.tscn" id="4_6i1he"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjinu"]
+radius = 7.0
+height = 18.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("itemCaster", "spriteAnimator") groups=["Player"]]
+collision_layer = 2
+script = ExtResource("1_cv1ly")
+itemCaster = NodePath("ItemCaster")
+moveSpeed = 1000
+friction = 0.3
+jumpForce = 400
+baseGravity = 40
+spriteAnimator = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vjinu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_xtjgv")
+animation = &"Idle"
+frame_progress = 0.709069
+speed_scale = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="ItemCaster" parent="." instance=ExtResource("3_4gt34")]
+item = ExtResource("4_6i1he")

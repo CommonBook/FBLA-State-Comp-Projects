@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c48ehgqvhoipn"]
+
+[ext_resource type="Script" path="res://Component Types/ItemCaster.gd" id="1_poisc"]
+
+[node name="ItemCaster" type="Node2D" node_paths=PackedStringArray("cooldownTimer")]
+script = ExtResource("1_poisc")
+cooldownTimer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

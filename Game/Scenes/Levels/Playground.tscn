@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ejq53r37gqkj"]
+
+[ext_resource type="TileSet" uid="uid://ds55tlyvdb3ls" path="res://Components/Main.tres" id="1_0xxd7"]
+[ext_resource type="Texture2D" uid="uid://bixpi6liudrqr" path="res://Assets/Tiles/Assets/Background_2.png" id="2_sn3ob"]
+[ext_resource type="Texture2D" uid="uid://bsyyreoym08ri" path="res://Assets/Tiles/Assets/Background_1.png" id="3_uoh2f"]
+[ext_resource type="PackedScene" uid="uid://ctenyqhblarao" path="res://Scenes/Player/Player.tscn" id="4_1nylq"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("4_1nylq")]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Level"]
+tile_set = ExtResource("1_0xxd7")
+format = 2
+layer_0/tile_data = PackedInt32Array(458738, 196608, 29, 458739, 196608, 29, 458740, 196608, 29, 458741, 196608, 29, 458742, 196608, 29, 458743, 196608, 29, 458744, 196608, 29, 458745, 196608, 29, 458746, 196608, 29, 458747, 196608, 29, 458748, 196608, 29, 458749, 196608, 29, 458750, 196608, 29, 458751, 196608, 29, 393216, 196608, 29, 393217, 196608, 29, 393218, 196608, 29, 393219, 196608, 29, 393220, 196608, 29, 393221, 196608, 29, 327686, 196608, 29, 393222, 196608, 29, 327687, 196608, 29, 327688, 196608, 29, 327689, 196608, 29, 327690, 196608, 29, 327691, 196608, 29, 327692, 196608, 29, 327693, 196608, 29, 327694, 196608, 29, 327695, 196608, 29, 327696, 196608, 29, 327697, 196608, 29, 327698, 196608, 29, 327699, 196608, 29, 327700, 196608, 29, 327701, 196608, 29, 327702, 196608, 29, 327703, 196608, 29, 327704, 196608, 29)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Level"]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.5
+scroll_base_scale = Vector2(0.2, 0.2)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Level/ParallaxBackground"]
+motion_mirroring = Vector2(496, 0)
+
+[node name="Sky_Bg" type="Sprite2D" parent="Level/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_sn3ob")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Level/ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(496, 0)
+
+[node name="Sky_Clouds" type="Sprite2D" parent="Level/ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("3_uoh2f")

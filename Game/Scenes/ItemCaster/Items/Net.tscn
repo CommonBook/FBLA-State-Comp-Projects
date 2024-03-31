@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2tawok5tnqhb"]
+
+[ext_resource type="Script" path="res://Scenes/ItemCaster/Items/Net.gd" id="1_1ipb8"]
+[ext_resource type="Texture2D" uid="uid://c8wwwxxndxfkj" path="res://Assets/Home-Grown/Net/net.png" id="1_473ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yat3b"]
+size = Vector2(7, 23)
+
+[node name="Net" type="Area2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 4
+collision_mask = 8
+monitoring = false
+script = ExtResource("1_1ipb8")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_473ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -11.5)
+shape = SubResource("RectangleShape2D_yat3b")
+debug_color = Color(0, 0.65098, 0.141176, 0.419608)
