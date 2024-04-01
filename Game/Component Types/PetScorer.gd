@@ -1,11 +1,8 @@
 class_name Pet_Scorer extends Resource
 
+var score : int
+var image : Texture2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _init(in_score, in_image):
+	score = in_score
+	image = in_image

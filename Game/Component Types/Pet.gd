@@ -9,6 +9,9 @@ class_name Pet extends Entity
 @export var navAgent : NavigationAgent2D
 @export var sprite : Sprite2D
 
+func get_image() -> Texture2D:
+	return sprite.texture
+
 func caught(projectile : Catching_Item):
 	var user : Character
 	var mult : float = 1
