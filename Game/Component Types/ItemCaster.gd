@@ -15,7 +15,7 @@ func use(direction : int = 1) -> void:
 	else:
 		if cooldownTimer.is_stopped():
 			var item_instance = item.instantiate()
-			item_instance.set_meta("owner", user)
+			item_instance.set_meta("user", user)
 			
 			if item_instance is Catching_Item and user is Character:
 				item_instance.size_multiplier = float(user.item_size_multiplier)

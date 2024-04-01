@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://utnud1hv1js2"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_0dmbb"]
+[ext_resource type="SpriteFrames" uid="uid://b2vt4vvmr0828" path="res://Scenes/Pet/Types/Snail/Snail_Frames.tres" id="2_4gh83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuuoj"]
+size = Vector2(32, 18)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uuouq"]
+radius = 12.0
+height = 40.0
+
+[node name="Snail" node_paths=PackedStringArray("spriteAnimator") instance=ExtResource("1_0dmbb")]
+petName = "Snail"
+spriteAnimator = NodePath("AnimatedSprite2D")
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(2, 3)
+shape = SubResource("RectangleShape2D_cuuoj")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_4gh83")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uuouq")

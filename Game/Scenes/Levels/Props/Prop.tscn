@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdrxefiqx7n24"]
+
+[ext_resource type="Texture2D" uid="uid://dajjk1u6vdlj0" path="res://Assets/PixelSpaces Free Pack/Backgrounds/House_largel_red.png" id="1_rrs0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nvdl"]
+size = Vector2(65, 16)
+
+[node name="Prop" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rrs0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 11.5)
+shape = SubResource("RectangleShape2D_8nvdl")

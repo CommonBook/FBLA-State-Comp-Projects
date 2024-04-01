@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dic7fk6yhx7nn"]
+
+[ext_resource type="PackedScene" uid="uid://cdrxefiqx7n24" path="res://Scenes/Levels/Props/Prop.tscn" id="1_cup0e"]
+[ext_resource type="Texture2D" uid="uid://c6sllxpisehkx" path="res://Assets/PixelSpaces Free Pack/Backgrounds/House_small_beige.png" id="2_a4vt0"]
+
+[node name="Little House" instance=ExtResource("1_cup0e")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_a4vt0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, 12)

@@ -10,13 +10,17 @@ radius = 7.0
 height = 18.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("itemCaster", "spriteAnimator") groups=["Player"]]
+z_index = 1
+position = Vector2(1, 0)
 collision_layer = 2
 script = ExtResource("1_cv1ly")
+fallGravityMultiplier = 2.0
+releaseGravityMultiplier = 1.5
 itemCaster = NodePath("ItemCaster")
 moveSpeed = 1000
-friction = 0.3
-jumpForce = 400
-baseGravity = 40
+friction = 0.4
+jumpForce = 350
+baseGravity = 30
 spriteAnimator = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,7 +33,13 @@ frame_progress = 0.709069
 speed_scale = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+position = Vector2(0, -33)
+zoom = Vector2(4.5, 4.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_vertical_enabled = true
+drag_top_margin = 0.3
+drag_bottom_margin = 0.0
 
 [node name="ItemCaster" parent="." instance=ExtResource("3_4gt34")]
 item = ExtResource("4_6i1he")

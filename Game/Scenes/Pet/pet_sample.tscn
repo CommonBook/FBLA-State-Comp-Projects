@@ -1,26 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://brqyi6hfrgort"]
+[gd_scene load_steps=5 format=3 uid="uid://brqyi6hfrgort"]
 
 [ext_resource type="Script" path="res://Component Types/Pet.gd" id="1_oh1nx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqjit"]
+size = Vector2(36, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yb3c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uovhe"]
-height = 24.0
+radius = 15.0
+height = 34.0
 
-[node name="pet_sample" type="CharacterBody2D" node_paths=PackedStringArray("navAgent", "sprite")]
+[node name="pet_sample" type="CharacterBody2D" node_paths=PackedStringArray("navAgent")]
+collision_layer = 8
 script = ExtResource("1_oh1nx")
 navAgent = NodePath("NavigationAgent2D")
-sprite = NodePath("Sprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision Box" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wqjit")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5yb3c")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Capture Box" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Capture Box"]
 shape = SubResource("CapsuleShape2D_uovhe")
 debug_color = Color(0, 0.639216, 0.392157, 0.419608)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="area_entered" from="Capture Box" to="." method="_on_capture_box_area_entered"]
