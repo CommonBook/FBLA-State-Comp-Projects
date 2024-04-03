@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d013yu51tvbyb"]
+
+[ext_resource type="Texture2D" uid="uid://c4lstqgaw483u" path="res://Assets/Home-Grown/Box/boxaseprite.png" id="1_7612g"]
+
+[resource]
+texture = ExtResource("1_7612g")
+region_rect = Rect2(0, 0, 64, 32)

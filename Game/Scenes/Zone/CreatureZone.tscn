@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqhg6muxg23jm"]
+
+[ext_resource type="Script" path="res://Component Types/CreatureZone.gd" id="1_ghrhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqrdx"]
+
+[node name="CreatureZone" type="Area2D" groups=["Zone"]]
+monitoring = false
+monitorable = false
+script = ExtResource("1_ghrhf")
+
+[node name="SpawnRegion" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vqrdx")
+debug_color = Color(0.792157, 0.364706, 0.592157, 0.419608)
+
+[node name="SearchRegion" type="CollisionShape2D" parent="."]

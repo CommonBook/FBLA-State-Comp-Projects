@@ -9,12 +9,11 @@ size = Vector2(36, 13)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uovhe"]
 radius = 15.0
-height = 34.0
 
-[node name="pet_sample" type="CharacterBody2D" node_paths=PackedStringArray("navAgent")]
+[node name="pet_sample" type="CharacterBody2D" node_paths=PackedStringArray("spriteAnimator")]
 collision_layer = 8
 script = ExtResource("1_oh1nx")
-navAgent = NodePath("NavigationAgent2D")
+spriteAnimator = NodePath("AnimatedSprite2D")
 
 [node name="Collision Box" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wqjit")
@@ -31,6 +30,7 @@ monitorable = false
 shape = SubResource("CapsuleShape2D_uovhe")
 debug_color = Color(0, 0.639216, 0.392157, 0.419608)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="Capture Box" to="." method="_on_capture_box_area_entered"]

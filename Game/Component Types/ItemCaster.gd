@@ -2,12 +2,16 @@ class_name Item_Caster extends Node2D
 ## Item_Caster casts out an item at the player's location.
 ##
 ## That's all it has to do, that is all it will do.
+
 @export_category("Components")
 @export var cooldownTimer : Timer
 
 @export_category("Item")
 @export var item : PackedScene ## A [PackedScene] containing the [Item] to cast. 
 @onready var user : Character = get_parent() ## The item's parent is its user. Should be a character. 
+
+@onready var GUI : CanvasLayer = get_tree().get_first_node_in_group("GUI")
+signal cooldown_started(timer : Timer)
 
 func use(direction : int = 1) -> void:
 	if not cooldownTimer:
@@ -27,3 +31,4 @@ func use(direction : int = 1) -> void:
 			add_child(item_instance)
 			
 			cooldownTimer.start()
+			emit_signal("cooldown_started", cooldownTimer)

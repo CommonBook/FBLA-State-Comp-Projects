@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://driwo25jkut4t"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_lvcyr"]
+[ext_resource type="SpriteFrames" uid="uid://dxftonae22eah" path="res://Scenes/Pet/Types/Bat/Bat_frames.tres" id="2_wsu2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2mm4"]
+size = Vector2(15, 13)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_361v0"]
+
+[node name="Bat" instance=ExtResource("1_lvcyr")]
+petName = "Guano"
+petType = 2
+reverse_sprite_direction = true
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_n2mm4")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_wsu2q")
+animation = &"Caught"
+frame = 4
+frame_progress = 0.667069
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CapsuleShape2D_361v0")

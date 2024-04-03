@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://1jvb6erwm78r"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_ib5qg"]
+[ext_resource type="SpriteFrames" uid="uid://bn5588yd6bshn" path="res://Scenes/Pet/Types/Ghost/Ghost_frames.tres" id="2_wobqr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqjat"]
+size = Vector2(22, 21.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ajeg3"]
+radius = 12.0
+
+[node name="Ghost" instance=ExtResource("1_ib5qg")]
+exotic = 4
+petName = "Phantom"
+petType = 2
+reverse_sprite_direction = true
+groundAcceleration = 30
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(-1, 4.25)
+shape = SubResource("RectangleShape2D_fqjat")
+disabled = true
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_wobqr")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CapsuleShape2D_ajeg3")

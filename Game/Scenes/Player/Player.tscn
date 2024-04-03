@@ -1,29 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctenyqhblarao"]
+[gd_scene load_steps=7 format=3 uid="uid://ctenyqhblarao"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_cv1ly"]
 [ext_resource type="SpriteFrames" uid="uid://cyhx36aijj6v" path="res://Components/Spritesheets/Blue-Dino.tres" id="1_xtjgv"]
 [ext_resource type="PackedScene" uid="uid://c48ehgqvhoipn" path="res://Scenes/ItemCaster/ItemCaster.tscn" id="3_4gt34"]
 [ext_resource type="PackedScene" uid="uid://c2tawok5tnqhb" path="res://Scenes/ItemCaster/Items/Net.tscn" id="4_6i1he"]
+[ext_resource type="PackedScene" uid="uid://bsrbm0yloyid6" path="res://Scenes/UI/GUI.tscn" id="5_cc8iq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjinu"]
-radius = 7.0
-height = 18.0
+radius = 4.0
+height = 14.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("itemCaster", "spriteAnimator") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("itemCaster", "spriteAnimator", "coyoteTime") groups=["Player"]]
 z_index = 1
 position = Vector2(1, 0)
 collision_layer = 2
 script = ExtResource("1_cv1ly")
-fallGravityMultiplier = 2.0
-releaseGravityMultiplier = 1.5
+fallGravityMultiplier = 1.3
+releaseGravityMultiplier = 0.6
 itemCaster = NodePath("ItemCaster")
-moveSpeed = 1000
-friction = 0.4
-jumpForce = 350
-baseGravity = 30
+moveSpeed = 300
+groundFriction = 0.3
+airFriction = 0.03
+jumpForce = 300
+terminalVelocity = 450
 spriteAnimator = NodePath("AnimatedSprite2D")
+coyoteTime = NodePath("Coyote Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_vjinu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -43,3 +47,9 @@ drag_bottom_margin = 0.0
 
 [node name="ItemCaster" parent="." instance=ExtResource("3_4gt34")]
 item = ExtResource("4_6i1he")
+
+[node name="Coyote Timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="GUI" parent="." instance=ExtResource("5_cc8iq")]

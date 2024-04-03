@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsrbm0yloyid6"]
+
+[ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="1_ft6na"]
+[ext_resource type="Texture2D" uid="uid://c8wwwxxndxfkj" path="res://Assets/Home-Grown/Net/net.png" id="2_07ymc"]
+[ext_resource type="Script" path="res://Scenes/UI/GUI.gd" id="2_peqic"]
+[ext_resource type="StyleBox" uid="uid://d013yu51tvbyb" path="res://Assets/Theme/Alt.tres" id="3_wppti"]
+
+[sub_resource type="Animation" id="Animation_6wcb1"]
+resource_name = "plus_money"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlusLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(2.37842, 0.594604, 0.0624999),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8wny"]
+_data = {
+"plus_money": SubResource("Animation_6wcb1")
+}
+
+[node name="GUI" type="CanvasLayer" groups=["GUI"]]
+script = ExtResource("2_peqic")
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_ft6na")
+
+[node name="Panel" type="Panel" parent="Main"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1105.0
+offset_right = 1240.0
+offset_bottom = 58.0
+grow_horizontal = 0
+theme_override_styles/panel = ExtResource("3_wppti")
+
+[node name="CenterContainer" type="CenterContainer" parent="Main/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Money Label" type="Label" parent="Main/Panel/CenterContainer"]
+layout_mode = 2
+text = "$$$$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlusLabel" type="Label" parent="Main"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1120.0
+offset_top = 65.0
+offset_right = 1232.0
+offset_bottom = 95.0
+grow_horizontal = 0
+text = "+$$$"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Main"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 590.0
+offset_right = 90.0
+offset_bottom = 680.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Main/Panel2"]
+layout_mode = 2
+offset_left = 71.0
+offset_top = 15.0
+offset_right = 104.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+texture = ExtResource("2_07ymc")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Panel2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 11
+theme_override_constants/margin_bottom = 11
+
+[node name="ProgressBar" type="ProgressBar" parent="Main/Panel2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 18
+max_value = 1.0
+value = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
+libraries = {
+"": SubResource("AnimationLibrary_u8wny")
+}

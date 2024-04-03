@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckyygpaf6ol2y"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_5s0ia"]
+[ext_resource type="SpriteFrames" uid="uid://ccs61krbgquus" path="res://Scenes/Pet/Types/Rock/rockSmall_frames.tres" id="2_kv8ks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0kma"]
+size = Vector2(26, 24)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4rom"]
+radius = 13.0
+
+[node name="pet_sample" instance=ExtResource("1_5s0ia")]
+exotic = 2
+petName = "Teen Golem"
+moveSpeed = 20
+groundAcceleration = 5
+jumpForce = 400
+terminalVelocity = 450
+baseGravity = 50
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_e0kma")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_kv8ks")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CapsuleShape2D_e4rom")

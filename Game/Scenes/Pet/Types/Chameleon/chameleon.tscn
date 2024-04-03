@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://lkui7c64uf2b"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_7cbcl"]
+[ext_resource type="SpriteFrames" uid="uid://hl8mgq37c3uw" path="res://Scenes/Pet/Types/Chameleon/Chameleon_frames.tres" id="2_wc7nv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gxwr"]
+size = Vector2(40, 25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkoki"]
+radius = 18.0
+height = 36.0
+
+[node name="Chameleon" instance=ExtResource("1_7cbcl")]
+exotic = 4
+petName = "Dinkler"
+reverse_sprite_direction = true
+jumpForce = 400
+terminalVelocity = 450
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_5gxwr")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(0.785714, 0.785714)
+sprite_frames = ExtResource("2_wc7nv")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_bkoki")

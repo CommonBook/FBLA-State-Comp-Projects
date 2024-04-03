@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpfvxxk1w505u"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_2bppk"]
+[ext_resource type="SpriteFrames" uid="uid://i8kbp6hiai1c" path="res://Scenes/Pet/Types/Trunk/Trunk_frames.tres" id="2_31f8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1tql"]
+size = Vector2(20, 23)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivqt8"]
+radius = 13.0
+height = 32.0
+
+[node name="Trunk" instance=ExtResource("1_2bppk")]
+exotic = 3
+petName = "Tree Beast"
+reverse_sprite_direction = true
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_i1tql")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_31f8b")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CapsuleShape2D_ivqt8")

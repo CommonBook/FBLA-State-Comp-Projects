@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://br8mnufcfkrjs"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_i4c41"]
+[ext_resource type="SpriteFrames" uid="uid://dpwgh6wwruggi" path="res://Scenes/Pet/Types/Turtle/Turtle_frames.tres" id="2_egy56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_686mj"]
+size = Vector2(29, 23)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_suw0q"]
+radius = 13.0
+height = 34.0
+
+[node name="Turtle" instance=ExtResource("1_i4c41")]
+exotic = 2
+reverse_sprite_direction = true
+groundFriction = 0.7
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_686mj")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_egy56")
+animation = &"Caught"
+frame = 1
+frame_progress = 0.417612
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_suw0q")

@@ -6,6 +6,8 @@ var item_size_multiplier : float = 1
 var item_speed_multiplier : float = 1
 var item_cooldown_multiplier : float = 1
 
+signal score_scored(new_score)
+
 var score : int = 0
 var exotic_count : Dictionary = {1 :0,
 								2:0,
@@ -28,9 +30,10 @@ func score_pet(pet : Pet, multiplier): ## Gets the score for a pet and stores it
 	
 	petsCaught.append(result)
 	score += pet_score
+	
+	emit_signal("score_scored", pet_score)
 
 ## Determines score.
 ## From the global score standard, multiply by the random factor and rarity score, divided by the number of pets in that rarity. 
 func _get_pet_score_result(exotic_score : int, rand_factor : float, multiplier : float) -> int:
-	print((1/exotic_count[exotic_score]))
 	return int(round(score_global_standard * (float(exotic_score) / exotic_count[exotic_score]) * multiplier * rand_factor))

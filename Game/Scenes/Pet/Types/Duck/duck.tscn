@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://yu2utqncslc"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_j801e"]
+[ext_resource type="SpriteFrames" uid="uid://bn1lirfmpee2h" path="res://Scenes/Pet/Types/Duck/Duck_frames.tres" id="2_7jkb3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ioc7"]
+size = Vector2(23, 25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_my8ty"]
+radius = 12.0
+height = 36.0
+
+[node name="Duck" instance=ExtResource("1_j801e")]
+petName = "Quacklet"
+reverse_sprite_direction = true
+jumpForce = 350
+terminalVelocity = 400
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(-0.5, 5.5)
+shape = SubResource("RectangleShape2D_2ioc7")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_7jkb3")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CapsuleShape2D_my8ty")

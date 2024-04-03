@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cce4y7tb6pufo"]
+
+[ext_resource type="Texture2D" uid="uid://c4lstqgaw483u" path="res://Assets/Home-Grown/Box/boxaseprite.png" id="1_5455i"]
+
+[resource]
+texture = ExtResource("1_5455i")
+region_rect = Rect2(0, 0, 64, 32)
+modulate_color = Color(0.454902, 0.454902, 0.454902, 1)

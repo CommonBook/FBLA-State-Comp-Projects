@@ -10,9 +10,12 @@ size = Vector2(32, 18)
 radius = 12.0
 height = 40.0
 
-[node name="Snail" node_paths=PackedStringArray("spriteAnimator") instance=ExtResource("1_0dmbb")]
+[node name="Snail" instance=ExtResource("1_0dmbb")]
 petName = "Snail"
-spriteAnimator = NodePath("AnimatedSprite2D")
+reverse_sprite_direction = true
+jumpForce = 300
+terminalVelocity = 400
+baseGravity = 20
 
 [node name="Collision Box" parent="." index="0"]
 position = Vector2(2, 3)

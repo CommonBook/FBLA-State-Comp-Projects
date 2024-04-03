@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjktaqnia3eg5"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_g0jn1"]
+[ext_resource type="SpriteFrames" uid="uid://je7at7jids2" path="res://Scenes/Pet/Types/Slime/Slime_frames.tres" id="2_5plw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dp76"]
+size = Vector2(44, 10)
+
+[node name="Slime" instance=ExtResource("1_g0jn1")]
+exotic = 3
+petName = "Gonk"
+reverse_sprite_direction = true
+groundFriction = 0.7
+jumpForce = 90
+terminalVelocity = 90
+baseGravity = 20
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_0dp76")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_5plw2")
+animation = &"Caught"
+frame = 4
+frame_progress = 0.327944

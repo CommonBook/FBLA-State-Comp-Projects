@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cfvk8jkosoh47"]
+
+[ext_resource type="Texture2D" uid="uid://cg46meh3iwtr6" path="res://Assets/Pixel Adventure 2/Enemies/Bee/Idle (36x34).png" id="1_q5b6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iub2r"]
+atlas = ExtResource("1_q5b6x")
+region = Rect2(0, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3axh"]
+atlas = ExtResource("1_q5b6x")
+region = Rect2(36, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3mbt"]
+atlas = ExtResource("1_q5b6x")
+region = Rect2(72, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o3yc"]
+atlas = ExtResource("1_q5b6x")
+region = Rect2(108, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdolr"]
+atlas = ExtResource("1_q5b6x")
+region = Rect2(144, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvpfm"]
+atlas = ExtResource("1_q5b6x")
+region = Rect2(180, 0, 36, 34)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iub2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3axh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3mbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o3yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdolr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvpfm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]

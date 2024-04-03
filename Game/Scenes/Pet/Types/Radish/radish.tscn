@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8g4h20ojpdyf"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_tatvt"]
+[ext_resource type="SpriteFrames" uid="uid://ccju4yf8a78rr" path="res://Scenes/Pet/Types/Radish/Radish_frames.tres" id="2_0f1lp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3p40"]
+size = Vector2(25, 25.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jpu0i"]
+radius = 12.0
+height = 38.0
+
+[node name="Radish" instance=ExtResource("1_tatvt")]
+exotic = 3
+petName = "Radish"
+reverse_sprite_direction = true
+moveSpeed = 60
+groundAcceleration = 30
+jumpForce = 350
+terminalVelocity = 400
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(0.5, 6.25)
+shape = SubResource("RectangleShape2D_g3p40")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_0f1lp")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CapsuleShape2D_jpu0i")

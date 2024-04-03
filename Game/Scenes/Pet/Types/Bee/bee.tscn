@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg7cj85s0otrl"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_mtyc5"]
+[ext_resource type="SpriteFrames" uid="uid://cfvk8jkosoh47" path="res://Scenes/Pet/Types/Bee/Bee_frames.tres" id="2_yqkv6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y38en"]
+size = Vector2(18, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ppgh6"]
+radius = 13.0
+
+[node name="Bee" instance=ExtResource("1_mtyc5")]
+exotic = 4
+petName = "Bee"
+petType = 2
+
+[node name="Collision Box" parent="." index="0"]
+shape = SubResource("RectangleShape2D_y38en")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_yqkv6")
+animation = &"Idle"
+frame_progress = 0.137134
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CapsuleShape2D_ppgh6")
