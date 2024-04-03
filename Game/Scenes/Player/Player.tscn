@@ -19,6 +19,7 @@ fallGravityMultiplier = 1.3
 releaseGravityMultiplier = 0.6
 itemCaster = NodePath("ItemCaster")
 moveSpeed = 300
+airAcceleration = 5
 groundFriction = 0.3
 airFriction = 0.03
 jumpForce = 300

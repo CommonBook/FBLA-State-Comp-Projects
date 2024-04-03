@@ -17,7 +17,7 @@ var navigation_complete : bool = true
 func _ready():
 	if spriteAnimator.sprite_frames.has_animation("Idle"):
 		spriteAnimator.play("Idle")
-	add_navigation_task(Vector2(-50,50), 30)
+	
 
 func get_sprite() -> SpriteFrames:
 	return spriteAnimator.sprite_frames
@@ -55,7 +55,7 @@ func _on_capture_box_area_entered(area) -> void:
 
 func _process(_delta) -> void:
 	rotate_by_speed(reverse_sprite_direction)
-	
+	print(global_position)
 	if caughtState: # If the pet is ever caught, wait for the animation to finish, then destroy.
 		if not spriteAnimator.is_playing():
 			destroy()
@@ -105,6 +105,7 @@ func fly_to(location : Vector2) -> void:
 	velocity = position.direction_to(location) * airAcceleration
 
 func add_navigation_task(location : Vector2, time : int) -> void:
+	print("Adding task")
 	var navTask = Navigation_Task.new(location, time)
 	navigationQueue.append(navTask)
 
@@ -112,6 +113,7 @@ func start_nav_task(navTask : Navigation_Task) -> void:
 	navTimer.wait_time = navTask.time_to_reach
 	navDestination = navTask.destination
 	
+	print("Navigating to: " + str(navTask.destination))
 	navigation_complete = false
 	
 	navTimer.start()
@@ -122,3 +124,4 @@ func nav_task_finished() -> void:
 	
 	if not navTimer.is_stopped():
 		navTimer.stop()
+

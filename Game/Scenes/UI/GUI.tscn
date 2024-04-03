@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsrbm0yloyid6"]
+[gd_scene load_steps=10 format=3 uid="uid://bsrbm0yloyid6"]
 
 [ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="1_ft6na"]
 [ext_resource type="Texture2D" uid="uid://c8wwwxxndxfkj" path="res://Assets/Home-Grown/Net/net.png" id="2_07ymc"]
@@ -25,14 +25,44 @@ _data = {
 "plus_money": SubResource("Animation_6wcb1")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_i2hpq"]
+font_size = 36
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.454902)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_bhwxb"]
+resource_name = "Wiggle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(0.203063, 0.225313, 2.21914),
+"update": 0,
+"values": [-0.0872665, 0.0872665, -0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n25fo"]
+_data = {
+"Wiggle": SubResource("Animation_bhwxb")
+}
+
 [node name="GUI" type="CanvasLayer" groups=["GUI"]]
 script = ExtResource("2_peqic")
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_ft6na")
 
 [node name="Panel" type="Panel" parent="Main"]
@@ -40,8 +70,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1105.0
-offset_right = 1240.0
+offset_left = -135.0
 offset_bottom = 58.0
 grow_horizontal = 0
 theme_override_styles/panel = ExtResource("3_wppti")
@@ -80,9 +109,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 590.0
+offset_top = -90.0
 offset_right = 90.0
-offset_bottom = 680.0
 grow_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="Main/Panel2"]
@@ -122,4 +150,30 @@ value = 1.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
 libraries = {
 "": SubResource("AnimationLibrary_u8wny")
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 35.0
+grow_horizontal = 2
+rotation = 0.0665984
+pivot_offset = Vector2(33.1, 24.705)
+
+[node name="CountdownText" type="Label" parent="Main/CenterContainer"]
+layout_mode = 2
+text = "60!"
+label_settings = SubResource("LabelSettings_i2hpq")
+
+[node name="Countdown" type="Timer" parent="Main/CenterContainer"]
+wait_time = 60.0
+one_shot = true
+
+[node name="CountdownAnimator" type="AnimationPlayer" parent="Main/CenterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_n25fo")
 }
