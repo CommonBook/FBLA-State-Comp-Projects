@@ -64,9 +64,15 @@ size = Vector2(236, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b5tt"]
 size = Vector2(240, 42)
 
-[node name="Playground" type="Node2D" groups=["Stage"]]
+[node name="Playground" type="Node2D" node_paths=PackedStringArray("level_timer", "move_timer") groups=["Stage"]]
 process_mode = 1
 script = ExtResource("1_ki5md")
+difficulty = 2.0
+total_pets = 20
+level_timer = NodePath("LevelTimer")
+move_timer = NodePath("MoveTimer")
+
+[node name="Chicken" parent="." instance=ExtResource("13_ixo33")]
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -127,7 +133,7 @@ texture = ExtResource("3_uoh2f")
 
 [node name="AutumnZone" parent="Regions" instance=ExtResource("4_sg52q")]
 position = Vector2(-386, -234)
-allowed_pets = Array[PackedScene]([ExtResource("5_ybkmp"), ExtResource("16_wmuqn"), null])
+allowed_pets = Array[PackedScene]([ExtResource("5_ybkmp"), ExtResource("16_wmuqn")])
 
 [node name="SpawnRegion" parent="Regions/AutumnZone" index="0"]
 position = Vector2(48, 23)
@@ -214,8 +220,11 @@ position = Vector2(-35, 86)
 releaseGravityMultiplier = 0.65
 baseGravity = 20
 
-[node name="Chicken" parent="." instance=ExtResource("13_ixo33")]
-position = Vector2(14, 77)
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [editable path="Regions/AutumnZone"]
 [editable path="Regions/CaveZone"]

@@ -49,7 +49,7 @@ func load_next_text() -> void:
 			button.disabled = false
 		16:
 			pause()
-			world.level_timer.wait_time = 20
+			world.level_timer.wait_time = 10
 			world.level_timer.start()
 			fader.play("end")
 func _on_continue_pressed():

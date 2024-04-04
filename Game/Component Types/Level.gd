@@ -9,15 +9,15 @@ class_name Level extends Node2D
 @export var level_timer : Timer ## This timer will start at the beginning of a level and determines when the level ends.
 @export var move_timer : Timer ## This timer will start at the beginning of a level and decides when all of the pets get a movement opportunity. 
 
-@onready var regions : Array[Node] = get_tree().get_nodes_in_group("Zone")
+@onready var regions : Array = get_tree().get_nodes_in_group("Zone")
 @onready var opponents : Array[Node] = [Node.new()] ## This will later contain all of the competitors.
 @onready var player : Player = $Player
 
-func _ready() -> void:
-	setup()
-
 func setup() -> void: # Initial setup for when a level is started.
 	spread_slots()
+	
+	regions = get_tree().get_nodes_in_group("Zone")
+	opponents = [Node.new()]
 	
 	if level_timer:
 		player.GUI.countdown = level_timer
@@ -60,15 +60,24 @@ func _on_timer_timeout() -> void:
 	
 	GUI.earningLabel.text = "$" + str(earnings)
 	GUI.expensesLabel.text = "$" + str(expenses)
-	GUI.resultLabel.text = "$" + str(score)
 	
 	var fail : bool
 	if get_parent().is_in_group("Game"):
+		
 		get_parent().score += earnings
-		get_parent().moneyRemaining += score
-		fail = get_parent().moneyRemaining < 0
+		fail = get_parent().moneyRemaining + score < 0
+		
+		if not fail:
+			get_parent().moneyRemaining += score
+			GUI.resultLabel.text = "$" + str(get_parent().moneyRemaining)
+		else:
+			GUI.resultLabel.text = "$" + str(get_parent().moneyRemaining + score)
+			get_parent().score -= earnings
+		
+		
 	
 	if fail:
 		GUI.animationPlayer.play("finish_L")
+		# Change animation to show a different retry button, then add a different method to game for that
 	else:
 		GUI.animationPlayer.play("finish_W")

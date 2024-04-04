@@ -13,8 +13,6 @@ var tutorialReference : CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	setup()
-	
 	player.connect("score_scored", Callable(self, "_on_pet_caught"))
 	
 	if tutorialUI:
@@ -34,6 +32,10 @@ func enter_competition() -> void:
 func _on_tutorial_area_body_entered(body):
 	if body is Player and tutorialReference != null:
 		tutorialReference.load_next_text()
+		if $Tutorial_Area:
+			$Tutorial_Area.queue_free()
+		else:
+			$Tutorial_Area2.queue_free()
 
 func _on_pet_caught(score) -> void:
 	tutorialReference.load_next_text()

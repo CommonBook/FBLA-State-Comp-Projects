@@ -27,7 +27,7 @@ func transition_to_next_stage() -> void: ## Generalized version of loading that 
 
 func next() -> void: ## Stage selection for moving to the next stage.
 	if len(levels) - 1 >= currentLevel + 1:
-		level_node.queue_free()
+		remove_child(level_node)
 		currentLevel += 1
 		load_stage(currentLevel)
 
@@ -43,6 +43,7 @@ func load_stage(stage : int) -> void: ## Loads a stage into the scene.
 		add_child(level)
 		move_child(level, 0)
 		
+		level.setup()
 		level_node = level
 		
 		finished_loading()
