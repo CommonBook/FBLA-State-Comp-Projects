@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://r5cgvhtr488j"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Menus/Tutorial/Tutorial Overlay.gd" id="1_5wlbx"]
+[ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="2_prbyk"]
+[ext_resource type="StyleBox" uid="uid://d013yu51tvbyb" path="res://Assets/Theme/Alt.tres" id="3_retjm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_flaxh"]
+font_size = 27
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.458824)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh4q4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80774"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hs6b"]
+
+[node name="Tutorial Overlay" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_5wlbx")
+dialogues = ["Hiya! This here is your pet shop.", "A pet shop needs pets. ", "If you don't have any pets...", "This guy is going to outcompete you.", "Let's stop that. Use the arrow keys to move.", "Look! There's a pet right there.", "Man, these chickens are growing out of control...", "Anyways, quickly! Catch it with your net using space.", "Nice work. That pet netted you some money.", "You can see how much you have in the top-right.", "Exotic pets are worth more money. Travel further out to find one.", "There! An exotic pet!", "You can't tell by looking at it, but that pet fetches a high price.", "But remember, not everyone can take care of such an exotic pet.", "But not everyone wants a boring old pet either.", "Strike a balance in your catching to make the most profit possible.", "Oh yeah... catch that pet! You only have until opening time to catch em all!"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 210.0
+grow_horizontal = 2
+theme = ExtResource("2_prbyk")
+theme_override_constants/margin_top = 70
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("3_retjm")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TextBox" type="Label" parent="MarginContainer/CenterContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Bla BLa Bla
+"
+label_settings = SubResource("LabelSettings_flaxh")
+autowrap_mode = 3
+
+[node name="Continue" type="Button" parent="MarginContainer/CenterContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.313726)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fh4q4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_80774")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1hs6b")
+text = "Continue"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/Panel/MarginContainer/Continue" to="." method="_on_continue_pressed"]

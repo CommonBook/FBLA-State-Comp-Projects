@@ -8,6 +8,9 @@ class_name Level extends Node2D
 @onready var player : Player = $Player
 
 func _ready() -> void:
+	setup()
+
+func setup() -> void: # Initial setup for when a level is started.
 	spread_slots()
 	
 	if level_timer:

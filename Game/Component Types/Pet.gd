@@ -55,10 +55,12 @@ func _on_capture_box_area_entered(area) -> void:
 
 func _process(_delta) -> void:
 	rotate_by_speed(reverse_sprite_direction)
-	print(global_position)
+	
 	if caughtState: # If the pet is ever caught, wait for the animation to finish, then destroy.
 		if not spriteAnimator.is_playing():
 			destroy()
+	else:
+		animate_defaults_by_speed()
 
 func _physics_process(_delta) -> void:
 	# During navigation, as long as the timer is going and the pet is not caught

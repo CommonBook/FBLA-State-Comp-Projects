@@ -61,3 +61,11 @@ func rotate_by_speed(reverse : bool = false) -> void: ## Rotates the _spriteAnim
 			spriteAnimator.flip_h = true if not reverse else false
 		elif velocity.x > 0:
 			spriteAnimator.flip_h = false if not reverse else true
+
+func animate_defaults_by_speed() -> void:
+	if spriteAnimator:
+		if spriteAnimator.sprite_frames.has_animation("Idle") and spriteAnimator.sprite_frames.has_animation("Walk"):
+			if abs(velocity.x) < 1:
+				spriteAnimator.play("Idle")
+			elif abs(velocity.x) > 1:
+				spriteAnimator.play("Walk")

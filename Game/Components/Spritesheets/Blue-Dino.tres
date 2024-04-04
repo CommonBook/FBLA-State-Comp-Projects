@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://cyhx36aijj6v"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://cyhx36aijj6v"]
 
 [ext_resource type="Texture2D" uid="uid://djdv5l8o5g8ms" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - doux.png" id="1_ast0l"]
 
@@ -33,10 +33,6 @@ region = Rect2(48, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmijf"]
 atlas = ExtResource("1_ast0l")
 region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t8uej"]
-atlas = ExtResource("1_ast0l")
-region = Rect2(408, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mj48p"]
 atlas = ExtResource("1_ast0l")
@@ -123,9 +119,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t8uej")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mj48p")
 }, {

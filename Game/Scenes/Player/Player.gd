@@ -11,14 +11,7 @@ func _ready():
 	itemCaster.connect("cooldown_started", Callable(GUI, "update_cooldown"))
 
 func _process(delta):
-	# Handle's animations
-	if round(velocity.x) == 0:
-		spriteAnimator.play("Idle")
-	elif abs(velocity.x) <= moveSpeed / 2:
-		spriteAnimator.play("Walk")
-	elif abs(velocity.x) > moveSpeed / 2:
-		spriteAnimator.play("Run")
-	
+	animate_run()
 	rotate_by_speed()
 
 func _physics_process(_delta):

@@ -59,4 +59,6 @@ func update_timer(timer):
 		countdownText.text = str(round(countdown.time_left)) + "!"
 	else:
 		countdownText.text = "Time's up!!!"
+	
+	if countdown.time_left < 10: 
 		countdownText.label_settings.font_color = Color(1,0.1,0.1,1)

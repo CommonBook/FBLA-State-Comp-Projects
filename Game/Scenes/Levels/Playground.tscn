@@ -211,8 +211,10 @@ shape = SubResource("RectangleShape2D_0b5tt")
 [node name="Player" parent="." instance=ExtResource("4_1nylq")]
 position = Vector2(-35, 86)
 releaseGravityMultiplier = 0.65
-airAcceleration = 5
 baseGravity = 20
+
+[node name="Chicken" parent="." instance=ExtResource("13_ixo33")]
+position = Vector2(14, 77)
 
 [editable path="Regions/AutumnZone"]
 [editable path="Regions/CaveZone"]

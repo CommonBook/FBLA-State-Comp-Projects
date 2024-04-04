@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1wa3gwtsse87"]
+
+[ext_resource type="Script" path="res://Component Types/Character.gd" id="1_gv8ua"]
+[ext_resource type="SpriteFrames" uid="uid://doflb0gmea566" path="res://Components/Spritesheets/Red-Dino.tres" id="2_cxi2v"]
+[ext_resource type="PackedScene" uid="uid://c48ehgqvhoipn" path="res://Scenes/ItemCaster/ItemCaster.tscn" id="3_ljnk1"]
+[ext_resource type="PackedScene" uid="uid://c2tawok5tnqhb" path="res://Scenes/ItemCaster/Items/Net.tscn" id="4_qyiyv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjinu"]
+radius = 4.0
+height = 14.0
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("spriteAnimator") groups=["Player"]]
+z_index = 1
+position = Vector2(1, 0)
+collision_layer = 2
+script = ExtResource("1_gv8ua")
+character_spritesheet = ExtResource("2_cxi2v")
+moveSpeed = 300
+airAcceleration = 5
+groundFriction = 0.3
+airFriction = 0.03
+jumpForce = 300
+terminalVelocity = 450
+spriteAnimator = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_vjinu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_cxi2v")
+animation = &"Idle"
+frame_progress = 0.029064
+speed_scale = 2.0
+
+[node name="ItemCaster" parent="." instance=ExtResource("3_ljnk1")]
+item = ExtResource("4_qyiyv")

@@ -10,7 +10,8 @@
 radius = 4.0
 height = 14.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("itemCaster", "spriteAnimator", "coyoteTime") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("itemCaster", "spriteAnimator", "coyoteTime") groups=["Character", "Player"]]
+process_mode = 1
 z_index = 1
 position = Vector2(1, 0)
 collision_layer = 2

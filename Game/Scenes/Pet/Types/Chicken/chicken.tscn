@@ -14,6 +14,8 @@ height = 34.0
 petName = "Cockatoo"
 reverse_sprite_direction = true
 groundAcceleration = 20
+jumpForce = 200
+terminalVelocity = 400
 baseGravity = 10
 
 [node name="Collision Box" parent="." index="0"]

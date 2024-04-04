@@ -8,6 +8,8 @@ var item_cooldown_multiplier : float = 1
 
 signal score_scored(new_score)
 
+@export var character_spritesheet : SpriteFrames ## SpriteFrames the character will use
+
 var score : int = 0
 var exotic_count : Dictionary = {1 :0,
 								2:0,
@@ -16,6 +18,22 @@ var exotic_count : Dictionary = {1 :0,
 								5:0}
 
 var petsCaught : Array[Pet_Scorer] ## Array containing all the pets you have caught as an image and a score. 
+
+func _ready():
+	spriteAnimator.sprite_frames = character_spritesheet
+	if spriteAnimator.sprite_frames.has_animation("Idle"):
+		spriteAnimator.play("Idle")
+
+func animate_run() -> void:
+	# Handle's animations
+	if spriteAnimator:
+		if spriteAnimator.sprite_frames.has_animation("Idle") and spriteAnimator.sprite_frames.has_animation("Walk") and spriteAnimator.sprite_frames.has_animation("Run"):
+			if round(velocity.x) == 0:
+				spriteAnimator.play("Idle")
+			elif abs(velocity.x) <= moveSpeed / 2:
+				spriteAnimator.play("Walk")
+			elif abs(velocity.x) > moveSpeed / 2:
+				spriteAnimator.play("Run")
 
 func score_pet(pet : Pet, multiplier): ## Gets the score for a pet and stores it in the list, then increments the character's score.
 	var exotic_score = pet.exotic

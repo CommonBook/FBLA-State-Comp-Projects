@@ -1,9 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsrbm0yloyid6"]
+[gd_scene load_steps=11 format=3 uid="uid://bsrbm0yloyid6"]
 
 [ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="1_ft6na"]
 [ext_resource type="Texture2D" uid="uid://c8wwwxxndxfkj" path="res://Assets/Home-Grown/Net/net.png" id="2_07ymc"]
 [ext_resource type="Script" path="res://Scenes/UI/GUI.gd" id="2_peqic"]
 [ext_resource type="StyleBox" uid="uid://d013yu51tvbyb" path="res://Assets/Theme/Alt.tres" id="3_wppti"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1q8p"]
+font_size = 26
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.490196)
 
 [sub_resource type="Animation" id="Animation_6wcb1"]
 resource_name = "plus_money"
@@ -86,6 +91,7 @@ grow_vertical = 2
 [node name="Money Label" type="Label" parent="Main/Panel/CenterContainer"]
 layout_mode = 2
 text = "$$$$"
+label_settings = SubResource("LabelSettings_f1q8p")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -166,7 +172,7 @@ pivot_offset = Vector2(33.1, 24.705)
 
 [node name="CountdownText" type="Label" parent="Main/CenterContainer"]
 layout_mode = 2
-text = "60!"
+text = "???"
 label_settings = SubResource("LabelSettings_i2hpq")
 
 [node name="Countdown" type="Timer" parent="Main/CenterContainer"]
