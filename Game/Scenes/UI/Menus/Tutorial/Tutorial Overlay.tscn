@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r5cgvhtr488j"]
+[gd_scene load_steps=10 format=3 uid="uid://r5cgvhtr488j"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menus/Tutorial/Tutorial Overlay.gd" id="1_5wlbx"]
 [ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="2_prbyk"]
@@ -15,10 +15,45 @@ shadow_color = Color(0, 0, 0, 0.458824)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hs6b"]
 
+[sub_resource type="Animation" id="Animation_ambff"]
+resource_name = "end"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(10),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rp3p4"]
+_data = {
+"end": SubResource("Animation_ambff")
+}
+
 [node name="Tutorial Overlay" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_5wlbx")
-dialogues = ["Hiya! This here is your pet shop.", "A pet shop needs pets. ", "If you don't have any pets...", "This guy is going to outcompete you.", "Let's stop that. Use the arrow keys to move.", "Look! There's a pet right there.", "Man, these chickens are growing out of control...", "Anyways, quickly! Catch it with your net using space.", "Nice work. That pet netted you some money.", "You can see how much you have in the top-right.", "Exotic pets are worth more money. Travel further out to find one.", "There! An exotic pet!", "You can't tell by looking at it, but that pet fetches a high price.", "But remember, not everyone can take care of such an exotic pet.", "But not everyone wants a boring old pet either.", "Strike a balance in your catching to make the most profit possible.", "Oh yeah... catch that pet! You only have until opening time to catch em all!"]
+dialogues = Array[String](["Hiya! This here is your pet shop.", "A pet shop needs pets. ", "If you don't have any pets...", "This guy is going to outcompete you.", "Let's stop that. Use the arrow keys to move.", "Look! There's a pet right there.", "Man, these chickens are growing out of control...", "Anyways, quickly! Catch it with your net using space.", "Nice work. That pet netted you some money.", "You can see how much you have in the top-right.", "Exotic pets are worth more money. Travel further out to find one.", "There! An exotic pet!", "You can't tell by looking at it, but that pet fetches a high price.", "But remember, not everyone can take care of such an exotic pet.", "But not everyone wants a boring old pet either.", "Strike a balance in your catching to make the most profit possible.", "Oh yeah... catch that pet! You only have until opening time to catch em all!"])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
@@ -69,5 +104,10 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_fh4q4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_80774")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1hs6b")
 text = "Continue"
+
+[node name="Fader" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rp3p4")
+}
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/Panel/MarginContainer/Continue" to="." method="_on_continue_pressed"]

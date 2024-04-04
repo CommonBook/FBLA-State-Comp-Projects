@@ -1,9 +1,13 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://lo6oll1d2yqx"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://lo6oll1d2yqx"]
 
 [ext_resource type="FontFile" uid="uid://bvibv0kntcded" path="res://Assets/Font/Determination-Regular.otf" id="1_0e3nn"]
 [ext_resource type="Texture2D" uid="uid://c4lstqgaw483u" path="res://Assets/Home-Grown/Box/boxaseprite.png" id="2_b5t6g"]
 [ext_resource type="StyleBox" uid="uid://cce4y7tb6pufo" path="res://Assets/Theme/Alt_hover.tres" id="2_wkbm5"]
 [ext_resource type="StyleBox" uid="uid://d013yu51tvbyb" path="res://Assets/Theme/Alt.tres" id="3_ttlsn"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3gxjh"]
+color = Color(0.4, 0.223529, 0.192157, 1)
+thickness = 4
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_025o7"]
 texture = ExtResource("2_b5t6g")
@@ -32,6 +36,7 @@ Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_0e3nn")
 Button/styles/hover = ExtResource("2_wkbm5")
 Button/styles/normal = ExtResource("3_ttlsn")
+HSeparator/styles/separator = SubResource("StyleBoxLine_3gxjh")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_0e3nn")
 Panel/styles/panel = SubResource("StyleBoxTexture_025o7")

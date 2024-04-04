@@ -65,6 +65,7 @@ size = Vector2(236, 20)
 size = Vector2(240, 42)
 
 [node name="Playground" type="Node2D" groups=["Stage"]]
+process_mode = 1
 script = ExtResource("1_ki5md")
 
 [node name="Level" type="Node2D" parent="."]

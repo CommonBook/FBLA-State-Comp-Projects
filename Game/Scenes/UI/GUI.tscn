@@ -1,34 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsrbm0yloyid6"]
+[gd_scene load_steps=26 format=3 uid="uid://bsrbm0yloyid6"]
 
 [ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="1_ft6na"]
 [ext_resource type="Texture2D" uid="uid://c8wwwxxndxfkj" path="res://Assets/Home-Grown/Net/net.png" id="2_07ymc"]
 [ext_resource type="Script" path="res://Scenes/UI/GUI.gd" id="2_peqic"]
 [ext_resource type="StyleBox" uid="uid://d013yu51tvbyb" path="res://Assets/Theme/Alt.tres" id="3_wppti"]
+[ext_resource type="Texture2D" uid="uid://b7eckicl5l46c" path="res://Assets/Home-Grown/bankrupt.png" id="5_2ux23"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f1q8p"]
 font_size = 26
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.490196)
-
-[sub_resource type="Animation" id="Animation_6wcb1"]
-resource_name = "plus_money"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlusLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.7),
-"transitions": PackedFloat32Array(2.37842, 0.594604, 0.0624999),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8wny"]
-_data = {
-"plus_money": SubResource("Animation_6wcb1")
-}
 
 [sub_resource type="LabelSettings" id="LabelSettings_i2hpq"]
 font_size = 36
@@ -58,7 +39,715 @@ _data = {
 "Wiggle": SubResource("Animation_bhwxb")
 }
 
+[sub_resource type="Animation" id="Animation_6wcb1"]
+resource_name = "plus_money"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlusLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(2.37842, 0.594604, 0.0624999),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1yi8n"]
+resource_name = "Finish"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pause"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Finish BG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(829, 256), Vector2(829, 14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Finish BG:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Game Cover:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Finish BG:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Game Cover:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Earning Amount:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/HSeparator:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Finish Panel:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Expenses Amount:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/HSeparator2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title3:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Result Label:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_2broy"]
+font_size = 26
+font_color = Color(0.823529, 0, 0.0196078, 1)
+shadow_color = Color(0, 0, 0, 0.45098)
+
+[sub_resource type="Animation" id="Animation_t3dhj"]
+resource_name = "finish_L"
+length = 8.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pause"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Finish BG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(829, 256), Vector2(829, 14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Finish BG:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Game Cover:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Finish BG:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Game Cover:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Earning Amount:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/HSeparator:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Finish Panel:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Expenses Amount:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/HSeparator2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title3:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Result Label:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Finish Panel/Bankrupt Stamp:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(6, 7),
+"transitions": PackedFloat32Array(3.24901, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Finish Panel/Bankrupt Stamp:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Finish Panel/Bankrupt Stamp:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(6, 7),
+"transitions": PackedFloat32Array(18.3792, 1),
+"update": 0,
+"values": [Vector2(1.6, 1.6), Vector2(1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Result Label:label_settings")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(4.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("LabelSettings_2broy")]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Finish Panel/Continue Button:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_47100"]
+font_size = 32
+font_color = Color(0.231373, 0.670588, 0.419608, 1)
+shadow_color = Color(0, 0, 0, 0.45098)
+
+[sub_resource type="Animation" id="Animation_mso1u"]
+resource_name = "finish_W"
+length = 8.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pause"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Finish BG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(829, 256), Vector2(829, 14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Finish BG:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Game Cover:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Finish BG:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Game Cover:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Earning Amount:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/HSeparator:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Finish Panel:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Expenses Amount:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/HSeparator2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Title3:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Result Label:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Finish Panel/MarginContainer/VBoxContainer/Result Label:label_settings")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(4.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("LabelSettings_47100")]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Finish Panel/Continue Button:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8wny"]
+_data = {
+"finish": SubResource("Animation_1yi8n"),
+"finish_L": SubResource("Animation_t3dhj"),
+"finish_W": SubResource("Animation_mso1u"),
+"plus_money": SubResource("Animation_6wcb1")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08tdx"]
+bg_color = Color(0, 0, 0, 0.552941)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x7uwo"]
+font_size = 36
+shadow_color = Color(0, 0, 0, 0.439216)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8bxyn"]
+font_size = 28
+font_color = Color(0, 0.843137, 0.54902, 1)
+shadow_color = Color(0, 0, 0, 0.396078)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_t2fbl"]
+color = Color(0.4, 0.223529, 0.192157, 1)
+thickness = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_myd3i"]
+font_size = 32
+font_color = Color(1, 0.741176, 0.811765, 1)
+shadow_color = Color(0, 0, 0, 0.439216)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7qwbl"]
+font_size = 26
+font_color = Color(0.823529, 0, 0.0196078, 1)
+shadow_color = Color(0, 0, 0, 0.45098)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbx2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvyui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vufm8"]
+
 [node name="GUI" type="CanvasLayer" groups=["GUI"]]
+process_mode = 3
 script = ExtResource("2_peqic")
 
 [node name="Main" type="Control" parent="."]
@@ -90,7 +779,7 @@ grow_vertical = 2
 
 [node name="Money Label" type="Label" parent="Main/Panel/CenterContainer"]
 layout_mode = 2
-text = "$$$$"
+text = "$0"
 label_settings = SubResource("LabelSettings_f1q8p")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -153,11 +842,6 @@ theme_override_font_sizes/font_size = 18
 max_value = 1.0
 value = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
-libraries = {
-"": SubResource("AnimationLibrary_u8wny")
-}
-
 [node name="CenterContainer" type="CenterContainer" parent="Main"]
 layout_mode = 1
 anchors_preset = 5
@@ -167,7 +851,7 @@ offset_left = -24.0
 offset_right = 24.0
 offset_bottom = 35.0
 grow_horizontal = 2
-rotation = 0.0665984
+rotation = -0.0872665
 pivot_offset = Vector2(33.1, 24.705)
 
 [node name="CountdownText" type="Label" parent="Main/CenterContainer"]
@@ -183,3 +867,158 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_n25fo")
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
+libraries = {
+"": SubResource("AnimationLibrary_u8wny")
+}
+
+[node name="Game Cover" type="Panel" parent="Main"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_08tdx")
+
+[node name="Finish BG" type="Panel" parent="Main"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 189.0
+offset_top = -104.0
+offset_right = 873.0
+offset_bottom = 271.999
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+theme_override_styles/panel = ExtResource("3_wppti")
+
+[node name="Finish Panel" type="Panel" parent="Main"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = -346.0
+offset_right = 189.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_wppti")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Finish Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Finish Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Main/Finish Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Cash earned:"
+label_settings = SubResource("LabelSettings_x7uwo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Earning Amount" type="Label" parent="Main/Finish Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "$420"
+label_settings = SubResource("LabelSettings_8bxyn")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Main/Finish Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_t2fbl")
+
+[node name="Title2" type="Label" parent="Main/Finish Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Expenses:"
+label_settings = SubResource("LabelSettings_myd3i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Expenses Amount" type="Label" parent="Main/Finish Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "$uh-oh"
+label_settings = SubResource("LabelSettings_7qwbl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Main/Finish Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Title3" type="Label" parent="Main/Finish Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Total:"
+label_settings = SubResource("LabelSettings_x7uwo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Result Label" type="Label" parent="Main/Finish Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "$0"
+label_settings = SubResource("LabelSettings_47100")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bankrupt Stamp" type="TextureRect" parent="Main/Finish Panel"]
+visible = false
+modulate = Color(1, 1, 1, 0.710123)
+custom_minimum_size = Vector2(0, 197.405)
+layout_mode = 2
+offset_left = -103.0
+offset_top = 158.0
+offset_right = 520.0
+offset_bottom = 463.0
+scale = Vector2(1.51347, 1.51347)
+pivot_offset = Vector2(310.62, 157.11)
+texture = ExtResource("5_2ux23")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Continue Button" type="Button" parent="Main/Finish Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -103.0
+offset_right = 56.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cbx2i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yvyui")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vufm8")
+text = "Continue"
+
+[connection signal="pressed" from="Main/Finish Panel/Continue Button" to="." method="_on_continue_button_pressed"]

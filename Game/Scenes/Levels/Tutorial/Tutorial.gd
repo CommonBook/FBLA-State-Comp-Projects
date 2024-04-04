@@ -32,7 +32,7 @@ func enter_competition() -> void:
 		$Competition/CPUParticles2D.emitting = true
 
 func _on_tutorial_area_body_entered(body):
-	if body is Player:
+	if body is Player and tutorialReference != null:
 		tutorialReference.load_next_text()
 
 func _on_pet_caught(score) -> void:

@@ -5,10 +5,14 @@ class_name Player extends Character
 @export var itemCaster : Item_Caster
 
 @onready var GUI : CanvasLayer = get_tree().get_first_node_in_group("GUI")
+@onready var camera : Camera2D = $Camera2D
+
+signal continue_pressed
 
 func _ready():
 	connect("score_scored", Callable(GUI, "update_score"))
 	itemCaster.connect("cooldown_started", Callable(GUI, "update_cooldown"))
+	camera.make_current()
 
 func _process(delta):
 	animate_run()

@@ -45,11 +45,9 @@ func get_random_position_on_rectangle(rectangle : CollisionShape2D) -> Vector2:
 
 func randomize_destinations() -> void:
 	for pet in pets:
-		if pet == null:
-			pets.remove_at(pets.find(pet))
-			continue
-		if randi_range(1,10) >= move_chance:
-			var destination : Vector2 = get_random_position_on_rectangle(searchRegion) 
-			var time = int(3 * (destination.x - pet.global_position.x) / 30)
-			
-			pet.add_navigation_task(destination, time)
+		if pet != null:
+			if randi_range(1,10) >= move_chance:
+				var destination : Vector2 = get_random_position_on_rectangle(searchRegion) 
+				var time = int(3 * (destination.x - pet.global_position.x) / 30)
+				
+				pet.add_navigation_task(destination, time)

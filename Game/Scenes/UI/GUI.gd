@@ -17,6 +17,12 @@ var percentTimer : Timer ## Reference to the timer recieved for the cooldown
 @onready var countdownText : Label = $Main/CenterContainer/CountdownText
 @onready var countdownAnimator : AnimationPlayer = $Main/CenterContainer/CountdownAnimator
 
+# For the win/lose display
+@onready var earningLabel : Label = $"Main/Finish Panel/MarginContainer/VBoxContainer/Earning Amount"
+@onready var expensesLabel : Label = $"Main/Finish Panel/MarginContainer/VBoxContainer/Expenses Amount"
+@onready var resultLabel : Label = $"Main/Finish Panel/MarginContainer/VBoxContainer/Result Label"
+@onready var bankrupt : TextureRect = $"Main/Finish Panel/Bankrupt Stamp"
+
 var timer_timer : float = 0 ## Counts up and resets every second. Determines when the timer text is updated.
 
 func _ready():
@@ -41,7 +47,13 @@ func _process(delta):
 		else:
 			countUp = false
 
-func update_score(new_money):
+func pause() -> void:
+	if get_tree().paused == false:
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
+
+func update_score(new_money) -> void:
 	scoreToGo += new_money
 	
 	plusLabel.text = "+$" + str(scoreToGo)
@@ -62,3 +74,8 @@ func update_timer(timer):
 	
 	if countdown.time_left < 10: 
 		countdownText.label_settings.font_color = Color(1,0.1,0.1,1)
+
+func _on_continue_button_pressed():
+	if get_parent() is Player:
+		pause()
+		get_parent().emit_signal("continue_pressed")
