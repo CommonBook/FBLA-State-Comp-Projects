@@ -29,7 +29,7 @@ _data = {
 "float": SubResource("Animation_3v2ql")
 }
 
-[node name="Main Menu" type="CanvasLayer"]
+[node name="Main Menu" type="CanvasLayer" groups=["Menu"]]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 496.0

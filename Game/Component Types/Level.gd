@@ -1,6 +1,10 @@
 class_name Level extends Node2D
 
-@export var total_pets : int = 5
+@export_category("Stage Properties")
+@export var difficulty : float = 1 ## Higher means more expenses at the end of the day.
+@export var total_pets : int = 5 
+
+@export_category("Required Stage Components")
 @export var level_timer : Timer ## This timer will start at the beginning of a level and determines when the level ends.
 @export var move_timer : Timer ## This timer will start at the beginning of a level and decides when all of the pets get a movement opportunity. 
 
@@ -40,3 +44,6 @@ func spread_slots() -> void:
 func spawn_pets() -> void:
 	for region in regions:
 		region.spawn_pets()
+
+func _on_timer_timeout():
+	pass
