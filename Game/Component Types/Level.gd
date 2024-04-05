@@ -29,6 +29,7 @@ func setup() -> void: # Initial setup for when a level is started.
 		move_timer.connect("timeout", Callable(self, "pets_search"))
 	
 	player.connect("continue_pressed", Callable(get_parent(), "transition_to_next_stage"))
+	player.connect("retry_pressed", Callable(get_parent(), "reload_stage"))
 	
 	spawn_pets()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ejq53r37gqkj"]
+[gd_scene load_steps=37 format=3 uid="uid://ejq53r37gqkj"]
 
 [ext_resource type="TileSet" uid="uid://ds55tlyvdb3ls" path="res://Components/Main.tres" id="1_0xxd7"]
 [ext_resource type="Script" path="res://Component Types/Level.gd" id="1_ki5md"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dg7cj85s0otrl" path="res://Scenes/Pet/Types/Bee/bee.tscn" id="18_4hffr"]
 [ext_resource type="PackedScene" uid="uid://cpfvxxk1w505u" path="res://Scenes/Pet/Types/Trunk/trunk.tscn" id="18_8jfxs"]
 [ext_resource type="PackedScene" uid="uid://br8mnufcfkrjs" path="res://Scenes/Pet/Types/Turtle/turtle.tscn" id="19_iobw5"]
+[ext_resource type="AudioStream" uid="uid://bj8ln4somf4x6" path="res://Assets/Home-Grown/Sounds/Outsourced/Stage1.mp3" id="22_c61by"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdftp"]
 size = Vector2(626, 66)
@@ -38,7 +39,7 @@ size = Vector2(338, 146)
 size = Vector2(380, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymafu"]
-size = Vector2(560, 85)
+size = Vector2(383, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1nho"]
 size = Vector2(327, 117)
@@ -164,7 +165,7 @@ position = Vector2(38, 24)
 shape = SubResource("RectangleShape2D_pxa63")
 
 [node name="SearchRegion" parent="Regions/FoothillsZone" index="1"]
-position = Vector2(63, 18.5)
+position = Vector2(36.5, 18.5)
 shape = SubResource("RectangleShape2D_ymafu")
 
 [node name="MountainZone" parent="Regions" instance=ExtResource("4_sg52q")]
@@ -216,12 +217,16 @@ position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_0b5tt")
 
 [node name="Player" parent="." instance=ExtResource("4_1nylq")]
-position = Vector2(-35, 86)
-releaseGravityMultiplier = 0.65
-baseGravity = 20
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-1, 0)
+stream = ExtResource("22_c61by")
+volume_db = -10.0
+autoplay = true
 
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 60.0
+one_shot = true
 
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 3.0

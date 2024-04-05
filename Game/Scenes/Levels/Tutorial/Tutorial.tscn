@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdtdjljy3khip"]
+[gd_scene load_steps=19 format=3 uid="uid://cdtdjljy3khip"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Tutorial/Tutorial.gd" id="1_xenpa"]
 [ext_resource type="PackedScene" uid="uid://r5cgvhtr488j" path="res://Scenes/UI/Menus/Tutorial/Tutorial Overlay.tscn" id="2_8migw"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://buadsmf5oeoiu" path="res://Scenes/Pet/Types/Rock/rockBig.tscn" id="8_3sq56"]
 [ext_resource type="PackedScene" uid="uid://ctenyqhblarao" path="res://Scenes/Player/Player.tscn" id="9_qpdy5"]
 [ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="10_d7d83"]
+[ext_resource type="AudioStream" uid="uid://c87fujmd6p28i" path="res://Assets/Home-Grown/Sounds/Outsourced/Tutorial.mp3" id="13_0ikde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pjkn"]
 size = Vector2(32, 50)
@@ -43,6 +44,12 @@ move_timer = NodePath("MoveTimer")
 [node name="Player" parent="." instance=ExtResource("9_qpdy5")]
 position = Vector2(-2, 7)
 character_spritesheet = ExtResource("4_0f5js")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(2, -7)
+stream = ExtResource("13_0ikde")
+volume_db = -6.0
+autoplay = true
 
 [node name="Level" type="Node2D" parent="."]
 

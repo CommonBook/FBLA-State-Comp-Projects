@@ -7,7 +7,10 @@ class_name Player extends Character
 @onready var GUI : CanvasLayer = get_tree().get_first_node_in_group("GUI")
 @onready var camera : Camera2D = $Camera2D
 
+var stored_direction : int
+
 signal continue_pressed
+signal retry_pressed
 
 func _ready():
 	connect("score_scored", Callable(GUI, "update_score"))
@@ -20,6 +23,7 @@ func _process(delta):
 
 func _physics_process(_delta):
 	var direction : Vector2 = Vector2(Input.get_axis("ui_left", "ui_right"), 0)
+	stored_direction = direction.x if direction.x != 0 else stored_direction
 	
 	if is_on_floor():
 		move(direction, groundAcceleration)
@@ -43,4 +47,4 @@ func _physics_process(_delta):
 	##################################
 	
 	if Input.is_action_just_pressed("control_action"):
-		itemCaster.use(round(direction.x))
+		itemCaster.use(round(stored_direction))

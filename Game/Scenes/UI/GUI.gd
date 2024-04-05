@@ -74,8 +74,15 @@ func update_timer(timer):
 	
 	if countdown.time_left < 10: 
 		countdownText.label_settings.font_color = Color(1,0.1,0.1,1)
+	else:
+		countdownText.label_settings.font_color = Color(1,1,1,1)
 
 func _on_continue_button_pressed():
 	if get_parent() is Player:
 		pause()
 		get_parent().emit_signal("continue_pressed")
+
+func _on_retry_button_pressed():
+	if get_parent() is Player:
+		pause()
+		get_parent().emit_signal("retry_pressed")

@@ -9,9 +9,10 @@ size = Vector2(26, 24)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4rom"]
 radius = 13.0
 
-[node name="pet_sample" instance=ExtResource("1_5s0ia")]
+[node name="rockSmall" instance=ExtResource("1_5s0ia")]
 exotic = 2
 petName = "Teen Golem"
+reverse_sprite_direction = true
 moveSpeed = 20
 groundAcceleration = 5
 jumpForce = 400

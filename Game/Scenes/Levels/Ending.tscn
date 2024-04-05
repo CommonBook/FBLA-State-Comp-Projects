@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkrgovgxc6upb"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Ending.gd" id="1_xlrq7"]
+[ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="2_1ui1g"]
+[ext_resource type="Script" path="res://Scenes/UI/Menus/Title Screen/QuitButton.gd" id="3_hgxh5"]
+[ext_resource type="AudioStream" uid="uid://c87fujmd6p28i" path="res://Assets/Home-Grown/Sounds/Outsourced/Tutorial.mp3" id="4_a3d78"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c7ja0"]
+font_size = 36
+shadow_color = Color(0, 0, 0, 0.384314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0onoi"]
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.435294)
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_xlrq7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1ui1g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="Thats it" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "A job well done."
+label_settings = SubResource("LabelSettings_c7ja0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="your score" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your score: "
+label_settings = SubResource("LabelSettings_0onoi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="highscore" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "High Score:"
+label_settings = SubResource("LabelSettings_0onoi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(105.675, 53.225)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_1ui1g")
+text = "Quit"
+script = ExtResource("3_hgxh5")
+
+[node name="Restart" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(105.675, 53.225)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_1ui1g")
+text = "Retry"
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a3d78")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/QuitButton" to="CanvasLayer/CenterContainer/VBoxContainer/QuitButton" method="_on_pressed"]

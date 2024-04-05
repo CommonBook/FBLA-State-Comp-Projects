@@ -2,7 +2,12 @@ extends Node2D
 
 @onready var transitionLayer = $TransitionLayer
 @onready var transitionPlayer = $TransitionLayer/Fader
+@onready var saveDirectory : String = OS.get_executable_path().get_base_dir()
 @export var titleScreen : PackedScene ## Scene containing the title screen
+
+@export_category("Audio")
+@export var bgm : AudioStreamPlayer2D ## The audio stream player playing the background music
+@export var playSound : AudioStreamPlayer2D ## Thea audio stream player to play the sound when the play button is pressed
 
 @export var levels : Array[PackedScene] ## Contains the scenes for the [levels] of the game. 
 var currentLevel : int
@@ -11,13 +16,29 @@ var level_node : Level ## Stores a reference to the level in the scene tree
 var score : int ## Total money the player has earned this run. 
 var moneyRemaining : int ## The amount of money the player has left in their bank.
 
+var highscore : int ## Stores the player's high score.
 
 func _ready(): ## Sets up any buttons that need it on scene load
 	var playButton = $"Main Menu/PlayButton"
-	
 	playButton.connect("pressed", Callable(self, "play"))
+	
+	highscore = load_highscore()
+
+func save_highscore() -> void:
+	ResourceSaver.save(Save_Data.new(highscore), saveDirectory + "/player_save.tres")
+
+func load_highscore() -> int:
+	return ResourceLoader.load(saveDirectory + "/player_save.tres", "Save_Data").highscore
+
+func reset() -> void: ## Completely resets the game properties.
+	currentLevel = 0
+	score = 0
+	moneyRemaining = 0
+	play()
 
 func play() -> void: ## When the play button is pressed, fades out to the tutorial.
+	playSound.play()
+	bgm.stop()
 	transitionPlayer.play("fade_to_tutorial")
 
 func transition_to_next_stage() -> void: ## Generalized version of loading that fades to the next stage in the order.
@@ -34,6 +55,10 @@ func next() -> void: ## Stage selection for moving to the next stage.
 func clear_title(): ## Removes title screen elements.
 	var menu = get_tree().get_first_node_in_group("Menu")
 	menu.queue_free()
+
+func reload_stage() -> void: ## Resets the current stage.
+	currentLevel -= 1
+	transition_to_next_stage()
 
 func load_stage(stage : int) -> void: ## Loads a stage into the scene.
 	if len(levels) - 1 >= stage:

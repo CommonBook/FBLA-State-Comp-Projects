@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://fpbtn0ik0yff"]
+[gd_scene load_steps=5 format=3 uid="uid://fpbtn0ik0yff"]
 
 [ext_resource type="Texture2D" uid="uid://c6sllxpisehkx" path="res://Assets/PixelSpaces Free Pack/Backgrounds/House_small_beige.png" id="1_8c5w8"]
 [ext_resource type="PackedScene" uid="uid://d1wa3gwtsse87" path="res://Scenes/Enemy/Enemy.tscn" id="2_x48ad"]
+[ext_resource type="AudioStream" uid="uid://ffe2mg6hs43u" path="res://Assets/Home-Grown/Sounds/hitHurt.wav" id="3_yfcps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa7da"]
 size = Vector2(65, 20)
@@ -41,5 +42,10 @@ damping_min = 2.941
 damping_max = 7.353
 scale_amount_min = 1.2
 scale_amount_max = 1.4
+
+[node name="DropSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yfcps")
+volume_db = -5.0
+autoplay = true
 
 [editable path="Enemy"]

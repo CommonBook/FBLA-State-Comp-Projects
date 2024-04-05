@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsw123ojrxxcx"]
+[gd_scene load_steps=13 format=3 uid="uid://bsw123ojrxxcx"]
 
 [ext_resource type="PackedScene" uid="uid://ejq53r37gqkj" path="res://Scenes/Levels/Playground.tscn" id="1_nfvde"]
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_p6gu5"]
 [ext_resource type="PackedScene" uid="uid://cdtdjljy3khip" path="res://Scenes/Levels/Tutorial/Tutorial.tscn" id="2_ve185"]
 [ext_resource type="PackedScene" uid="uid://ccvyrwnqvgmq0" path="res://Scenes/UI/Menus/Title Screen/Main Menu.tscn" id="3_0im7c"]
+[ext_resource type="PackedScene" uid="uid://bdce1qnkg3aug" path="res://Scenes/Levels/Candyland.tscn" id="4_yox8s"]
+[ext_resource type="PackedScene" uid="uid://bkrgovgxc6upb" path="res://Scenes/Levels/Ending.tscn" id="5_b1epy"]
+[ext_resource type="AudioStream" uid="uid://bgtrc3ig66afw" path="res://Assets/Home-Grown/Sounds/Title.mp3" id="5_rpuhb"]
+[ext_resource type="AudioStream" uid="uid://c07yk6ep02ark" path="res://Assets/Home-Grown/Sounds/Start.mp3" id="6_ofnif"]
 
 [sub_resource type="Animation" id="Animation_5mmwp"]
 resource_name = "fade_in"
@@ -129,12 +133,22 @@ _data = {
 "fade_to_tutorial": SubResource("Animation_o6pkx")
 }
 
-[node name="Game" type="Node2D" groups=["Game"]]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("bgm", "playSound") groups=["Game"]]
 process_mode = 3
 script = ExtResource("1_p6gu5")
-levels = Array[PackedScene]([ExtResource("2_ve185"), ExtResource("1_nfvde")])
+bgm = NodePath("Main Menu/BGM")
+playSound = NodePath("Main Menu/PlayPressed")
+levels = Array[PackedScene]([ExtResource("2_ve185"), ExtResource("1_nfvde"), ExtResource("4_yox8s"), ExtResource("5_b1epy")])
 
 [node name="Main Menu" parent="." instance=ExtResource("3_0im7c")]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="Main Menu"]
+stream = ExtResource("5_rpuhb")
+autoplay = true
+
+[node name="PlayPressed" type="AudioStreamPlayer2D" parent="Main Menu"]
+stream = ExtResource("6_ofnif")
+volume_db = -5.0
 
 [node name="TransitionLayer" type="CanvasLayer" parent="."]
 visible = false
