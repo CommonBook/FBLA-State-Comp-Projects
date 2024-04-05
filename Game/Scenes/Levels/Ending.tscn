@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkrgovgxc6upb"]
+[gd_scene load_steps=10 format=3 uid="uid://bkrgovgxc6upb"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Ending.gd" id="1_xlrq7"]
 [ext_resource type="Theme" uid="uid://lo6oll1d2yqx" path="res://Assets/Theme/main.tres" id="2_1ui1g"]
 [ext_resource type="Script" path="res://Scenes/UI/Menus/Title Screen/QuitButton.gd" id="3_hgxh5"]
 [ext_resource type="AudioStream" uid="uid://c87fujmd6p28i" path="res://Assets/Home-Grown/Sounds/Outsourced/Tutorial.mp3" id="4_a3d78"]
+[ext_resource type="AudioStream" uid="uid://c07yk6ep02ark" path="res://Assets/Home-Grown/Sounds/Start.mp3" id="5_5tni5"]
+[ext_resource type="Texture2D" uid="uid://bixpi6liudrqr" path="res://Assets/Tiles/Assets/Background_2.png" id="6_khf3u"]
+[ext_resource type="Texture2D" uid="uid://bsyyreoym08ri" path="res://Assets/Tiles/Assets/Background_1.png" id="7_q7pn2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c7ja0"]
 font_size = 36
@@ -28,6 +31,7 @@ theme = ExtResource("2_1ui1g")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Thats it" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -72,4 +76,19 @@ text = "Retry"
 stream = ExtResource("4_a3d78")
 autoplay = true
 
+[node name="Retry" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5tni5")
+volume_db = -6.0
+
+[node name="Sky_Bg" type="Sprite2D" parent="."]
+position = Vector2(249, 136)
+scale = Vector2(5, 5)
+texture = ExtResource("6_khf3u")
+
+[node name="Sky_Clouds" type="Sprite2D" parent="."]
+position = Vector2(249, 136)
+scale = Vector2(5, 5)
+texture = ExtResource("7_q7pn2")
+
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/QuitButton" to="CanvasLayer/CenterContainer/VBoxContainer/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

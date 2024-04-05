@@ -28,7 +28,15 @@ func save_highscore() -> void:
 	ResourceSaver.save(Save_Data.new(highscore), saveDirectory + "/player_save.tres")
 
 func load_highscore() -> int:
-	return ResourceLoader.load(saveDirectory + "/player_save.tres", "Save_Data").highscore
+	var resource = ResourceLoader.load(saveDirectory + "/player_save.tres", "Save_Data")
+	
+	if resource:
+		if resource.highscore:
+			return resource.highscore
+		else:
+			return 0
+	else:
+		return 0
 
 func reset() -> void: ## Completely resets the game properties.
 	currentLevel = 0
@@ -37,7 +45,8 @@ func reset() -> void: ## Completely resets the game properties.
 	play()
 
 func play() -> void: ## When the play button is pressed, fades out to the tutorial.
-	playSound.play()
+	if playSound:
+		playSound.play()
 	bgm.stop()
 	transitionPlayer.play("fade_to_tutorial")
 
@@ -54,7 +63,7 @@ func next() -> void: ## Stage selection for moving to the next stage.
 
 func clear_title(): ## Removes title screen elements.
 	var menu = get_tree().get_first_node_in_group("Menu")
-	menu.queue_free()
+	remove_child(menu)
 
 func reload_stage() -> void: ## Resets the current stage.
 	currentLevel -= 1

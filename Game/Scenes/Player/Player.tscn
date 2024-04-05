@@ -28,15 +28,15 @@ terminalVelocity = 450
 spriteAnimator = NodePath("AnimatedSprite2D")
 coyoteTime = NodePath("Coyote Timer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_vjinu")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_xtjgv")
 animation = &"Idle"
 frame_progress = 0.709069
 speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_vjinu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -33)
