@@ -16,9 +16,9 @@ Buzzer alert- Lux Kitchen Timer.wav by knufds -- https://freesound.org/s/670891/
 <p><i>All assets used were freely available for any kind of use. Here are their creators.</i></p>
 <p> 
   <a href="https://piiixl.itch.io/textures">Tiles by PiiiXL on itch.io</a> <br>
-  <a href="https://anokolisa.itch.io/basic-140-tiles-grassland-and-mines">Backgrounds by Anokolisa on itch.io</a>
-  <a href="https://arks.itch.io/dino-characters">Characters by Arks on itch.io</a>
-  <a href="https://pixelfrog-assets.itch.io/pixel-adventure-2">Animals by PixelFrog Assets on itch.io</a>
+  <a href="https://anokolisa.itch.io/basic-140-tiles-grassland-and-mines">Backgrounds by Anokolisa on itch.io</a><br>
+  <a href="https://arks.itch.io/dino-characters">Characters by Arks on itch.io</a><br>
+  <a href="https://pixelfrog-assets.itch.io/pixel-adventure-2">Animals by PixelFrog Assets on itch.io</a><br>
 </p>
 
 <h2><i>All code was written by yours truly. Made in <a href="https://godotengine.org/">Godot Engine</a>.</i></h2>
