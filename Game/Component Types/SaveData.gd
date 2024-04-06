@@ -1,6 +1,6 @@
 class_name Save_Data extends Resource
 
-var highscore : int
+@export var highscore : int = 0
 
-func _init(score : int) -> void:
+func _init(score : int = 0) -> void:
 	highscore = score

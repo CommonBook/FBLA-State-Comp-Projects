@@ -1,6 +1,27 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cfvk8jkosoh47"]
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://cfvk8jkosoh47"]
 
+[ext_resource type="Texture2D" uid="uid://t2gfi1vilufp" path="res://Assets/Pixel Adventure 2/Enemies/Bee/Hit (36x34).png" id="1_et8rh"]
 [ext_resource type="Texture2D" uid="uid://cg46meh3iwtr6" path="res://Assets/Pixel Adventure 2/Enemies/Bee/Idle (36x34).png" id="1_q5b6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f6qq"]
+atlas = ExtResource("1_et8rh")
+region = Rect2(144, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddggt"]
+atlas = ExtResource("1_et8rh")
+region = Rect2(108, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf625"]
+atlas = ExtResource("1_et8rh")
+region = Rect2(72, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dlx1"]
+atlas = ExtResource("1_et8rh")
+region = Rect2(36, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbf6n"]
+atlas = ExtResource("1_et8rh")
+region = Rect2(0, 0, 36, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iub2r"]
 atlas = ExtResource("1_q5b6x")
@@ -28,6 +49,26 @@ region = Rect2(180, 0, 36, 34)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f6qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddggt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf625")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dlx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbf6n")
+}],
+"loop": true,
+"name": &"Caught",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iub2r")

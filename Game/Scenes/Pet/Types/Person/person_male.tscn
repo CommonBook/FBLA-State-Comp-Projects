@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://baynyahypjyne"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_s3q26"]
+[ext_resource type="SpriteFrames" uid="uid://bu10y47t1g0h3" path="res://Scenes/Pet/Types/Person/Person_male_frames.tres" id="2_egamw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipsyb"]
+size = Vector2(8, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_limpo"]
+radius = 3.0
+
+[node name="Person_Male" instance=ExtResource("1_s3q26")]
+exotic = 5
+petName = "uhm..."
+jumpForce = 350
+terminalVelocity = 400
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ipsyb")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_egamw")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CircleShape2D_limpo")

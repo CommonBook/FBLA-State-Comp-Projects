@@ -1,0 +1,120 @@
+[gd_scene load_steps=15 format=3 uid="uid://yw3ehw4yga5r"]
+
+[ext_resource type="PackedScene" uid="uid://brqyi6hfrgort" path="res://Scenes/Pet/pet_sample.tscn" id="1_v2bp8"]
+[ext_resource type="Texture2D" uid="uid://b4kd5a81l7phr" path="res://Assets/PixelSpaces Free Pack/Pre-made NPCs/Female.png" id="2_plvfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l78b2"]
+size = Vector2(6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe7cg"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1a2h"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru0uq"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57l06"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o57dc"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sq8o"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkqck"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxt5b"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipfxp"]
+atlas = ExtResource("2_plvfw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axh8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe7cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1a2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe7cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1a2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe7cg")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_i1a2h")
+}],
+"loop": false,
+"name": &"Caught",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru0uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57l06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o57dc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sq8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkqck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxt5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipfxp")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j47mt"]
+radius = 3.16228
+
+[node name="Person_Female" instance=ExtResource("1_v2bp8")]
+exotic = 5
+petName = "uhm..."
+jumpForce = 350
+terminalVelocity = 400
+
+[node name="Collision Box" parent="." index="0"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_l78b2")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_axh8w")
+animation = &"Caught"
+
+[node name="CollisionShape2D" parent="Capture Box" index="0"]
+shape = SubResource("CircleShape2D_j47mt")

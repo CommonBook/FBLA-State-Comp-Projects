@@ -19,8 +19,7 @@ shape = SubResource("RectangleShape2D_y38en")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("2_yqkv6")
-animation = &"Idle"
-frame_progress = 0.137134
+animation = &"Caught"
 
 [node name="CollisionShape2D" parent="Capture Box" index="0"]
 shape = SubResource("CapsuleShape2D_ppgh6")

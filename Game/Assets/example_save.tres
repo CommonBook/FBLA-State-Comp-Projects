@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Save_Data" load_steps=2 format=3 uid="uid://bjbvrwhcccaax"]
+
+[ext_resource type="Script" path="res://Component Types/SaveData.gd" id="1_xfaod"]
+
+[resource]
+script = ExtResource("1_xfaod")
+highscore = 1

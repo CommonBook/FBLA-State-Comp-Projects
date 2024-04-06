@@ -1172,21 +1172,27 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="1" type="AudioStreamPlayer2D" parent="Main/Finish Panel/Sounds"]
+process_mode = 3
 stream = ExtResource("6_3hcfn")
 
 [node name="2" type="AudioStreamPlayer2D" parent="Main/Finish Panel/Sounds"]
+process_mode = 3
 stream = ExtResource("7_ppulr")
 
 [node name="Win" type="AudioStreamPlayer2D" parent="Main/Finish Panel/Sounds"]
+process_mode = 3
 stream = ExtResource("8_8ku1l")
 
 [node name="Lose" type="AudioStreamPlayer2D" parent="Main/Finish Panel/Sounds"]
+process_mode = 3
 stream = ExtResource("9_th1vg")
 
 [node name="Stamp" type="AudioStreamPlayer2D" parent="Main/Finish Panel/Sounds"]
+process_mode = 3
 stream = ExtResource("10_lvj7g")
 
 [node name="Buzzer" type="AudioStreamPlayer2D" parent="Main/Finish Panel/Sounds"]
+process_mode = 3
 stream = ExtResource("11_m2e4b")
 
 [connection signal="pressed" from="Main/Finish Panel/Continue Button" to="." method="_on_continue_button_pressed"]

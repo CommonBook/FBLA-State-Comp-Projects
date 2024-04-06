@@ -89,6 +89,7 @@ process_mode = 1
 script = ExtResource("1_5vb6t")
 difficulty = 2.0
 total_pets = 22
+expense_standard = 150
 level_timer = NodePath("LevelTimer")
 move_timer = NodePath("MoveTimer")
 
@@ -279,6 +280,13 @@ shape = SubResource("RectangleShape2D_ehd4k")
 position = Vector2(30.5, 36.5)
 shape = SubResource("RectangleShape2D_hrv23")
 
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [node name="Player" parent="." instance=ExtResource("21_r7vxr")]
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="Player"]
@@ -286,13 +294,6 @@ position = Vector2(-1, 0)
 stream = ExtResource("18_sxnae")
 volume_db = -5.0
 autoplay = true
-
-[node name="LevelTimer" type="Timer" parent="."]
-wait_time = 90.0
-one_shot = true
-
-[node name="MoveTimer" type="Timer" parent="."]
-wait_time = 3.0
 
 [editable path="Regions/Field Zone"]
 [editable path="Regions/Attic Zone"]

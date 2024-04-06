@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var transitionLayer = $TransitionLayer
 @onready var transitionPlayer = $TransitionLayer/Fader
-@onready var saveDirectory : String = OS.get_executable_path().get_base_dir()
+@onready var saveDirectory : String = "user://save/"
+var saveFilename : String = "player_data.tres"
 @export var titleScreen : PackedScene ## Scene containing the title screen
 
 @export_category("Audio")
@@ -16,27 +17,33 @@ var level_node : Level ## Stores a reference to the level in the scene tree
 var score : int ## Total money the player has earned this run. 
 var moneyRemaining : int ## The amount of money the player has left in their bank.
 
+var save_data : Resource 
 var highscore : int ## Stores the player's high score.
 
 func _ready(): ## Sets up any buttons that need it on scene load
+	DirAccess.make_dir_absolute(saveDirectory)
+	
 	var playButton = $"Main Menu/PlayButton"
 	playButton.connect("pressed", Callable(self, "play"))
 	
 	highscore = load_highscore()
 
 func save_highscore() -> void:
-	ResourceSaver.save(Save_Data.new(highscore), saveDirectory + "/player_save.tres")
+	ResourceSaver.save(Save_Data.new(highscore), saveDirectory + saveFilename)
 
 func load_highscore() -> int:
-	var resource = ResourceLoader.load(saveDirectory + "/player_save.tres", "Save_Data")
+	#save_highscore()
+	if FileAccess.file_exists(saveDirectory + saveFilename):
+		save_data = ResourceLoader.load(saveDirectory + saveFilename, "Save_Data").duplicate(true)
+	else:
+		save_highscore()
 	
-	if resource:
-		if resource.highscore:
-			return resource.highscore
-		else:
-			return 0
+	if save_data:
+		print(save_data.highscore)
+		return save_data.highscore
 	else:
 		return 0
+
 
 func reset() -> void: ## Completely resets the game properties.
 	currentLevel = 0
