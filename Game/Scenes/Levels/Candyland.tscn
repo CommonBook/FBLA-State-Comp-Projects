@@ -306,3 +306,5 @@ autoplay = true
 [editable path="Regions/Cake Zone"]
 [editable path="Regions/Layer Zone"]
 [editable path="Regions/Salad Zone"]
+[editable path="Player"]
+[editable path="Player/GUI"]

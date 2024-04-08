@@ -775,10 +775,10 @@ tracks/17/path = NodePath("Finish Panel/Sounds/1:playing")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(1.8),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
@@ -787,10 +787,10 @@ tracks/18/path = NodePath("Finish Panel/Sounds/2:playing")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -799,10 +799,10 @@ tracks/19/path = NodePath("Finish Panel/Sounds/Win:playing")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(4.9),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -811,10 +811,10 @@ tracks/20/path = NodePath("Finish Panel/Sounds/Buzzer:playing")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_6wcb1"]
@@ -1109,7 +1109,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 text = "$0"
-label_settings = SubResource("LabelSettings_2broy")
+label_settings = SubResource("LabelSettings_47100")
 horizontal_alignment = 1
 vertical_alignment = 1
 

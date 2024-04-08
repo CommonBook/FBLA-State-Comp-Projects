@@ -93,6 +93,8 @@ func load_stage(stage : int) -> void: ## Loads a stage into the scene.
 
 func finished_loading() -> void: ## Plays an animation which shows the screen once loading is finished. 
 	transitionPlayer.play("fade_in")
+	if get_tree().paused == true:
+		get_tree().paused = false
 
 func _process(delta):
 	if Input.is_action_just_pressed("control_exit"):
